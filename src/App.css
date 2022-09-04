@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Mikes_Font';
+  src:url('./assets/Lato/Lato-Regular.ttf') format('truetype');
+  
+
+}
+
+.App {
+  text-align: center;
+  position: relative;
+  /* background-image: url('../images/free-wallpapers-site-14.jpg'); */
+  background-image: url('./images/free-wallpapers-site-14.jpg');
+  background-repeat:no-repeat;
+  height: 58.55rem;
+  width: 120rem;
+  font-family: 'Mikes_Font';
+  font-weight: bold;
+  font-size: large;
+  user-select: none;
+
+}

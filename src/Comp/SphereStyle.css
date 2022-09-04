@@ -1,0 +1,67 @@
+.sphereDivStyle {
+    position: absolute;
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    height: 17.5rem;
+    width: 17.5rem;
+    bottom: 2.7rem;
+    left: 41.9%;
+
+}
+
+.sliceContainerStyle {
+    top: 0.8rem;
+    left: 0.8rem;
+    height: 16rem;
+    width: 16rem;
+    position: relative;
+    overflow: hidden;
+    --s: 7rem;
+    
+
+}
+
+.sliceContainerStyle > * {
+    position: absolute;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: conic-gradient(from calc(-1*var(--d,0deg)), rgb(22, 22, 22),grey,white);
+    -webkit-mask:radial-gradient(farthest-side,transparent calc(99% - var(--s)),#fff calc(100% - var(--s))); 
+    mask:radial-gradient(farthest-side,transparent calc(99% - var(--s)),#fff calc(100% - var(--s)));
+    border-radius: 50%;
+    clip-path: polygon(50% 50%, 60% 0%, 100% 0%, 100% 33.745%);
+
+}
+
+.slice_1Style {
+    transform:rotate(72deg);
+    --d: 72deg;
+    --c:blue;
+}
+.slice_1Style:hover {
+    background-color: red;
+    border: 3px solid black;
+}
+.slice_2Style {
+    transform:rotate(144deg);
+    --d: 144deg;
+    --c:orange;
+}
+.slice_3Style {
+    transform:rotate(-72deg);
+    --d: -72deg;
+    --c:green;
+}
+.slice_4Style {
+    transform:rotate(-144deg);
+    --d: -144deg;
+    --c:purple;
+}
+.slice_5Style {
+    transform:rotate(0);
+    --d: 0deg;
+    --c:red;
+}

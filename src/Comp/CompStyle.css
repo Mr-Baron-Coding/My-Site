@@ -1,0 +1,24 @@
+.mainHeaderStyle {
+    width: 45rem;
+    height: 15rem;
+    position: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
+
+.headerName {
+    text-align: left;
+    width: 100%;
+    padding-top: 3rem;
+    font-size: 50px;
+    color: white;
+
+}
+
+.headerDiscription {
+    text-align: left;
+    width: 100%;
+    font-size: 30px;
+    color: white;
+
+}
