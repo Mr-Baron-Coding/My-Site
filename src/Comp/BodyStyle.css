@@ -1,25 +1,41 @@
-.bodyDivStyle {
-    width: 45rem;
-    height: 25rem;
-    left: 5rem;
-    padding-left: 3rem;
-
+@media screen and ( max-width: 450px ) {
+    .bodyDivStyle { width: 90%; height: 100%; margin: auto; color: white; }
+    .bodyDivStyle div { width: 100%; height: 100%; }
+    .picDivStyle { margin: auto; width: 90%; padding: none; left: 0px; } 
+    .prPicStyle { width: 20rem; height: 20rem; margin: auto; -webkit-filter: grayscale(100%); filter: grayscale(100%); border-radius: 10%;}
+    .displayWindowStyle { height: 100%; width: 100%; position: absolute; }
 }
 
-.bodyDivStyle div {
-    width: 100%;
-    text-align: left;
-    color: white;
-
-}
-
-.displayWindowStyle {
-    width: 30%;
-    height: 30%;
-    position: absolute;
-    top: 25%;
-    right: 5rem;
-
+@media screen and ( min-width: 550px ) {
+    .displayWindowStyle {
+        width: 30%;
+        height: 30%;
+        position: absolute;
+        top: 25%;
+        right: 5rem;
+    
+    }
+    .prPicStyle {
+        border-radius: 5%;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        height: 15rem;
+        width: 15rem;
+    
+    }
+    .bodyDivStyle {
+        width: 45rem;
+        height: 25rem;
+        left: 5rem;
+        padding-left: 3rem;
+    
+    }
+    .bodyDivStyle div {
+        width: 100%;
+        text-align: left;
+        color: white;
+    
+    }
 }
 
 /*  nav bar style */
@@ -50,15 +66,6 @@
     width: 50%;
     text-align: left;
     margin-left: 3rem;
-
-}
-
-.prPicStyle {
-    border-radius: 5%;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-    height: 15rem;
-    width: 15rem;
 
 }
 

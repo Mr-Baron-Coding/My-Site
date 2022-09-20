@@ -1,11 +1,10 @@
 import React from 'react';
-// import GameTable from './GameTable.js';
 import GameDisplay from './GameDisplay.js';
+import './Style.css';
 
 export default function MainSudoko() {
   return (
-    <div>
-      {/* <GameTable /> */}
+    <div className='displauWindowStyle'>
       <GameDisplay />
     </div>
   )

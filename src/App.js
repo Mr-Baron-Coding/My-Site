@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useMediaQuery } from '@mui/material';
+import { changeScreenSize } from './Comp/Features/mobileSlice.js';
 
 import Body from './Comp/Body';
 import Nothing from './Screens/ErrorScreen.js';
-import Sphere from './Comp/Sphere';
+// import Sphere from './Comp/Sphere';
 
 import Sudoko from './Projects/Sudoko/MainSudoko.js';
 import XO from './Projects/XO/MainXO.js';
@@ -13,6 +16,13 @@ import './App.css';
 import ProjectsScreen from './Screens/ProjectsScreen';
 
 export default function App() {
+  const dispatch = useDispatch();
+  const matches = useMediaQuery('(max-width:450px)');
+
+  useEffect(() => {
+    dispatch(changeScreenSize(matches));
+
+  }, [matches]);
 
   return (
     <div className='App'>

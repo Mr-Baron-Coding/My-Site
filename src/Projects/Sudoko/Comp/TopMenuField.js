@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
 import { dispalyBottomMessage, displayModeButtons } from '../features/messageSlice.js';
@@ -9,17 +9,17 @@ import './CompStyle.css';
 
 export default function TopMenuField() {
     const dispatch = useDispatch();
-    const userMess = useSelector((state) => state.messages.valueBottom);            // display message ?
+    // const userMess = useSelector((state) => state.messages.valueBottom);            // display message ?
     const diffButtons = useSelector((state) => state.messages.diffButtons);         // display buttons
     const isTimeRunning = useSelector((state) => state.stopwatch.running);          // is stopwatch running
     const isGameChecked = useSelector((state) => state.table.checkGame);            // are we checking the game after submit?
     const isEasyMode = useSelector((state) => state.table.easyMode);
 
-    const [modeButtons, setModeButtons] = useState([                                // mode buttons
+    const modeButtons = [
         { text: 'Easy', id: 1, number: Math.floor(Math.random() * (36 - 32 + 1) ) + 32 },
         { text: 'Medium', id: 2, number: Math.floor(Math.random() * (26 - 24 + 1) ) + 24 },
         { text: 'Hard', id: 3, number: Math.floor(Math.random() * (16 - 14 + 1) ) + 14 }
-    ]);
+    ];
 
     let easyColor = isEasyMode ? 'pink' : 'black';
 
@@ -70,31 +70,29 @@ export default function TopMenuField() {
 
   return (
     <div style={{ marginBottom: '2rem' }}>
-        <div>
-                <div style={{ display: 'flex' , width: '30.3rem', margin: 'auto', justifyContent: 'center', justifyItems: 'stretch' }}>
-                    <div style={{ margin: '1rem'}} onClick={ () => openMenu() }>New Game</div>
-                    <div style={{ margin: '1rem'}} onClick={ () => dispatch(autoFillInput(true))}>Auto fill</div>  {/* remove */}
-                    <div style={{ margin: '1rem', color:  easyColor }} onClick={ () => makeItSuperEasy() }>SuperEasy</div>  {/* remove */}
-                    <div style={{ margin: '1rem'}}><Stopwatch /></div>
-                </div>
-                <div style={{ display: 'flex' , width: '30.3rem', margin: 'auto', justifyContent: 'center' }}>
-                    { diffButtons 
-                                ? modeButtons.map((button, i) => {
-                                    return (
-                                        <div style={{ margin: '1rem'}} key={ `${button.text}`}>
-                                            <button 
-                                                onClick={ () => beginTimer(button.number) } 
-                                                className='diffButtons'
-                                            >
-                                                { button.text }
-                                            </button>
-                                        </div>
-                                    )
-                                })
-                                : null
-                    }
-                </div>                
-            </div>
+        <div className='topRowButtonsStyle'>
+            <div onClick={ () => openMenu() }>New Game</div>
+            <div onClick={ () => dispatch(autoFillInput(true))}>Auto fill</div>  {/* remove */}
+            <div style={{ color:  easyColor }} onClick={ () => makeItSuperEasy() }>SuperEasy</div>  {/* remove */}
+            <Stopwatch />
+        </div>
+        <div className='diffButtonsContainer'>
+            { diffButtons 
+                        ? modeButtons.map((button, i) => {
+                            return (
+                                <div style={{ margin: '1rem'}} key={ `${button.text}`}>
+                                    <button 
+                                        onClick={ () => beginTimer(button.number) } 
+                                        className='diffButtons'
+                                    >
+                                        { button.text }
+                                    </button>
+                                </div>
+                            )
+                        })
+                        : null
+            }
+        </div>                
     </div>
   )
 }

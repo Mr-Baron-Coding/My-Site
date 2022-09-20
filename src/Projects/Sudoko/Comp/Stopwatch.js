@@ -29,12 +29,10 @@ export default function Stopwatch() {
   }, [isTimeRunning]);
     
   return (
-    <div className="stopwatch">
-      <div className="numbers">
-          <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>   {/* minutes */}
-          <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>    {/* seconds */}
-          <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>                {/* milliseconds */}
-      </div>
+    <div className="numbers">
+      <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>   {/* minutes */}
+      <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>    {/* seconds */}
+      <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>                {/* milliseconds */}
     </div>
   )
 };

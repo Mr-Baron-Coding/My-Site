@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import stopwatchSlice from './Projects/Sudoko/features/stopwatchSlice';
 import messageSlice from './Projects/Sudoko/features/messageSlice';
 import tableSlice from './Projects/Sudoko/features/tableSlice';
+import mobileSlice from './Comp/Features/mobileSlice';
 
 import { IconContext } from "react-icons";
 
@@ -16,7 +18,8 @@ const store = configureStore({
     reducer: {
         stopwatch: stopwatchSlice,
         messages: messageSlice,
-        table: tableSlice
+        table: tableSlice,
+        mobile: mobileSlice,
     }
 })
 

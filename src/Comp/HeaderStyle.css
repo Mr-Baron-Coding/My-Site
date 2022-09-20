@@ -1,0 +1,64 @@
+.mainHeaderStyle {
+    width: 45rem;
+    height: 15rem;
+    position: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
+
+@media only screen and ( max-width: 450px ) {
+    .mainHeaderStyle { font-size: 50%; padding-left: 1.5rem; width: 100%; }
+}
+
+.headerName {
+    text-align: left;
+    width: 100%;
+    padding-top: 3rem;
+    font-size: 3.5rem;
+    color: white;
+
+}
+
+.headerDiscription {
+    text-align: left;
+    width: 100%;
+    font-size: 1.9rem;
+    color: white;
+
+}
+
+/* navigation button */
+.mobileNavStyle {
+    display: inline-block;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    right: 5%;
+    top: 2%;
+    color: white;
+
+}
+
+.menuWindow { 
+    position: absolute;
+    width: 80%;
+    height: 20%;
+    z-index: 2;
+    color: black;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    opacity: 0.9;
+
+}
+
+.selectStyle {
+    border: 1px solid black;
+    border-radius: 0.8rem;
+    padding-top: 5px;
+    background-color: rgb(179, 179, 179);
+
+}
+.selectStyle:hover {
+    opacity: 0.7;
+}

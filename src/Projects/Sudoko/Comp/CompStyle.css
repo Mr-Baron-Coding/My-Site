@@ -1,14 +1,69 @@
+@media screen and ( min-width: 550px ) {
+    .diffButtonsContainer { 
+        display: flex;
+        width: 30.3rem;
+        margin: auto;
+        justify-content: center;
+        justify-items: stretch;
+    }
+    .diffButtons {
+        width: 5rem;
+        height: 2rem;
+        font-family: 'Mikes_Font';
+        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
+        font-size: large;
+        font-weight: bold;
+        background: none;
+        border: none;
+    
+    }
+    .topRowButtonsStyle {
+        font-family: 'Mikes_Font';
+        font-weight: bold;
+        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
+        display: flex;
+        width: 30.3rem;
+        margin: auto;
+        justify-content: center;
+        justify-items: stretch;
+    }
+    .topRowButtonsStyle div { margin: 1rem; }
+}
+
+@media screen and ( max-width: 450px ) {
+    .topRowButtonsStyle {
+        font-family: 'Mikes_Font';
+        font-weight: bold;
+        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: stretch;
+    }
+    .topRowButtonsStyle div { padding: 0.7rem; }
+    .diffButtonsContainer { 
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        justify-items: stretch;
+    }
+    .diffButtons {
+        font-family: 'Mikes_Font';
+        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
+        font-size: large;
+        font-weight: bold;
+        background: none;
+        border: none;
+        color: white;
+    
+    }
+}
+
 .diffButtons {
-    width: 5rem;
-    height: 2rem;
     font-family: 'Mikes_Font';
     src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
-    font-size: large;
-    font-weight: bold;
-    background: none;
-    border: none;
-
 }
+
 .diffButtons:hover {
     color: grey;
 }

@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux'; 
 import Header from '../Comp/Header';
+import './ScreensStyle.css';
 
 export default function ProjectsScreen() {
   let location = useLocation();
-  const [linkList, setLinkList] = useState([
+  const mobile = useSelector((state) => state.mobile.isMobile);
+  
+  const linkList = [
     { id: 1, to: 'Sudoko', val: 'Sudoko' },
     { id: 2, to: 'XO', val: 'XO' },
     { id: 3, to: 'Calculator', val: 'Calculator' },
-    { id: 4, to: '/', val: 'Back' },
-  ]);
+    { id: 4, to: '/', val: 'Back' }
+  ];
   
   const linkGen = () => {
     let arr = linkList.filter((cell) => cell.val !== location.pathname.slice(location.pathname.lastIndexOf('/') + 1));
     return (
-      <div style={{ display: 'flex', flexDirection: 'row', margin: 'auto', width: '30%' }}>
+      <div className='linkHeaderStyle'>
         { arr.map((l) => {
           return (
             <Link 
@@ -28,11 +32,12 @@ export default function ProjectsScreen() {
         })}
       </div>
     )
-  }
+  };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <div style={{ width: '30%' }}><Header /></div>
-      <div style={{ width: '70%' }}>
+    <div className='windowStyle'>
+      { !mobile ? <div style={{ width: '30%' }}><Header /></div> : null }   
+      <div className='displayStyle'>
         <nav>
           { linkGen() }
         </nav>
