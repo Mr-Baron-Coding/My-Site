@@ -22,7 +22,7 @@ export default function App() {
   useEffect(() => {
     dispatch(changeScreenSize(matches));
 
-  }, [matches]);
+  }, [matches, dispatch]);
 
   return (
     <div className='App'>

@@ -9,6 +9,7 @@ export default function Stopwatch() {
   const isTimeRunning = useSelector((state) => state.stopwatch.running);
   
   const [time, setTime] = useState(0);
+
   useEffect(() => {
     let interval;
     if ( isTimeRunning ) {
@@ -26,7 +27,8 @@ export default function Stopwatch() {
     return () => {
       clearInterval(interval);
     }
-  }, [isTimeRunning]);
+    // eslint-disable-next-line
+  }, [isTimeRunning, dispatch]);
     
   return (
     <div className="numbers">

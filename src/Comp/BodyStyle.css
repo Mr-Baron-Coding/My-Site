@@ -1,5 +1,5 @@
 @media screen and ( max-width: 450px ) {
-    .bodyDivStyle { width: 90%; height: 100%; margin: auto; color: white; }
+    .bodyDivStyle { width: 90%; height: 100%; margin: auto; color: white; border: 6px solid green; }
     .bodyDivStyle div { width: 100%; height: 100%; }
     .picDivStyle { margin: auto; width: 90%; padding: none; left: 0px; } 
     .prPicStyle { width: 20rem; height: 20rem; margin: auto; -webkit-filter: grayscale(100%); filter: grayscale(100%); border-radius: 10%;}

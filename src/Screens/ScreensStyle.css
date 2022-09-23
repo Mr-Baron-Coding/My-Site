@@ -6,6 +6,6 @@
 
 @media screen and ( max-width: 450px ) {
     .linkHeaderStyle { display: flex; flex-direction: row; margin: auto; width: 100%; height: 100%; }
-    .windowStyle { display: flex; flex-direction: row; border: 3px solid blue; }
+    .windowStyle { display: flex; flex-direction: row; }
     .displayStyle { width: 100%; color: white; }
 }

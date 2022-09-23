@@ -17,7 +17,7 @@ export default function GameCalc() {
     const [gameTable, setGameTable] = useState([]);             // game table to be filled
     const [userInput, setUserInput] = useState([]);             // users input log
     const [showArr,setShowArr]  = useState([]);                 // array of display
-    const [runTime, setRunTime] = useState(false);
+    // const [runTime, setRunTime] = useState(false);
 
     let checkNumbers = [1,2,3,4,5,6,7,8,9];                     // global var for row check
     let temp_table = [[],[],[],[],[],[],[],[],[]];              // global var for table check
@@ -243,7 +243,7 @@ export default function GameCalc() {
         if ( row === 0 || row === 3 || row === 6 ) {
             return true;
         }
-        if ( row < 3 && col < 3 || row > 2 && row < 6 && col < 3 || row > 5 && col < 3 ) { // only first 3 col box row 0-2 
+        if ( (row < 3 && col < 3) || (row > 2 && row < 6 && col < 3) || (row > 5 && col < 3) ) { // only first 3 col box row 0-2 
             arr = boxArr[0].filter((e,i) => e === cell);
             if ( arr.length === 0 ) {
                 return true;
@@ -254,7 +254,7 @@ export default function GameCalc() {
                 return false;
             }
         }
-        if ( row < 3 && col > 2 && col < 6 || row > 2 && row < 6 && col > 2 && col < 6 || row > 5 && col > 2 && col < 6 ) {
+        if ( (row < 3 && col > 2 && col < 6) || (row > 2 && row < 6 && col > 2 && col < 6) || (row > 5 && col > 2 && col < 6) ) {
             arr = boxArr[1].filter((e,i) => e === cell);
             if ( arr.length === 0 ) {
                 return true;
@@ -265,7 +265,7 @@ export default function GameCalc() {
                 return false;
             }
         }   
-        if ( row < 3 && col > 5 || row > 2 && row < 6 && col > 5 || row > 5 && col > 5 ) {
+        if ( (row < 3 && col > 5) || (row > 2 && row < 6 && col > 5) || (row > 5 && col > 5) ) {
             arr = boxArr[2].filter((e,i) => e === cell);
             if ( arr.length === 0 ) {
                 return true;
@@ -409,14 +409,14 @@ export default function GameCalc() {
     const emptyTable = () => {
         createEmptyTable();
     return (
-        <table style={{ width: '30rem', height: '20rem' }}>
+        <table className='emptyTableStyle'>
             <tbody>
                 { temp_table.map((ele,i) =>{
                     return (
-                        <tr key={ `tr_${i}` } className={ `tr_${i}` } style={{ width: '3rem', height: '3rem', border: '1px solid black' }}>             {/* if row 3 && 6 add top line  */}
+                        <tr key={ `tr_${i}` } className={ `tr_${i}` }>             {/* if row 3 && 6 add top line  */}
                             { ele.map((el, ie) => {
                                 return (
-                                    <td key={ `td_${ie}`} className={ `tr_${i}` } style={{ width: '3rem', height: '3rem', border: '1px solid black' }}> {/* if col 3 && 6 add right line  */}
+                                    <td key={ `td_${ie}`} className={ `td_${i}` }> {/* if col 3 && 6 add right line  */}
                                         {}
                                     </td>
                                 )
@@ -432,8 +432,8 @@ export default function GameCalc() {
 
 // populate empty table
 const createEmptyTable = () => {
-    let table = temp_table;
-    let arr = showNumArr;
+    // let table = temp_table;
+    // let arr = showNumArr;
     for(let x=0; x<9; x++) {
         for(let y=0;y<9;y++) {
             temp_table[x][y] = ' ';  
