@@ -54,10 +54,10 @@
         outline: none;
     
     } 
-    td[class*='tr_2'], td[class*='tr_5'] {
+    .gameTableStyle td[class*='tr_2'], td[class*='tr_5'] {
         border-bottom: 0.15rem solid rgb(120, 120, 120);
     }
-    td[class$='3'], td[class$='6']
+    .gameTableStyle td[class$='3'], td[class$='6']
      {
         border-left: 0.15rem solid rgb(121, 120, 120);
     }

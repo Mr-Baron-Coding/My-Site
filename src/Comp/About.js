@@ -8,11 +8,14 @@ export default function About() {
       <p>I'm Michael Baron</p>
       <p>
         Discovered the passion for coding in SVCollege
-        and been learing by self and creating different 
+        and been learing by myself and creating different 
         projects.
       </p>
       <p>
-        
+        Remove headers....  
+      </p>
+      <p>
+        Completed frontend course through SVCollege in 2020.   
       </p>
     </div>
   )

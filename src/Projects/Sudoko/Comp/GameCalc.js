@@ -335,7 +335,7 @@ export default function GameCalc() {
     // print a full table on screen
     const tableBase = () => {
         return (
-            <table>
+            <table className='gameTableStyle'>
                 <tbody>
                     { gameTable.map((row,i) => {
                         return (
@@ -413,10 +413,10 @@ export default function GameCalc() {
             <tbody>
                 { temp_table.map((ele,i) =>{
                     return (
-                        <tr key={ `tr_${i}` } className={ `tr_${i}` }>             {/* if row 3 && 6 add top line  */}
+                        <tr key={ `tr_${i}` } >             {/* if row 3 && 6 add top line  */}
                             { ele.map((el, ie) => {
                                 return (
-                                    <td key={ `td_${ie}`} className={ `td_${i}` }> {/* if col 3 && 6 add right line  */}
+                                    <td key={ `td_${ie}`}> {/* if col 3 && 6 add right line  */}
                                         {}
                                     </td>
                                 )

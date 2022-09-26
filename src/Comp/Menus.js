@@ -16,7 +16,7 @@ export default function Menus(props) {
       { val: 'About', id: 1 },
       { val: 'Skills', id: 2 },
       { val: 'Contact', id: 3 },
-      { val: 'My Work', id: 4 },
+      { val: 'Projects', id: 4 },
       { val: 'Link', id: 5 },
     ];
 
