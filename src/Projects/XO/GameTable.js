@@ -37,7 +37,7 @@ export default function GameTable() {
                         <tr key={`row_${rowI}`}>
                             { row.map((cell, cellI) => {
                                 return (
-                                    <td key={ `cellI_${rowI}${cellI}`}>
+                                    <td key={ `cellI_${rowI}${cellI}` } className={ `cellI_${rowI}${cellI}` }>
                                         <input 
                                             key={ `input_${rowI}${cellI}` } 
                                             value={ cell === '' ? '' : cell }
@@ -169,7 +169,8 @@ export default function GameTable() {
     const displayButton = () => {
         return (
             <div 
-                style={{ width: '100%', border: 'none', background: 'none' }} 
+                className='newGameButton'
+                // style={{ width: '100%', border: 'none', background: 'none' }} 
                 onClick={ () => clearGame() }
             >
                 New Game
@@ -177,7 +178,7 @@ export default function GameTable() {
         )
     };
     const displayMess = () => {
-            return !isX ? 'X won' : 'O Won';
+            return !isX ? 'X Won' : 'O Won';
         
     };
     
@@ -189,12 +190,15 @@ export default function GameTable() {
             <div>O: { scores.O }</div>    
             <div onClick={ () => setScores({ X: 0, O: 0 })}>Reset</div>    
         </div>
-        <table>
-                { rowOrBox() }
-        </table>
+        <div className='gameContainer'>
+            <table>
+                    { rowOrBox() }
+            </table>
+        </div>
         
-        { isMessage ? displayMess() : displayButton() } 
-        
+        <div className='bottomDiv'>
+            { isMessage ? displayMess() : displayButton() } 
+        </div>
     </div>
   )
 }
