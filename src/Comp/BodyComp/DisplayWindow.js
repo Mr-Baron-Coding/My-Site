@@ -22,7 +22,7 @@ export default function DisplayWindow(props) {
         {displayList.map((e,i) => {
             return (
                 props.windowNumber === e.id 
-                    ? <div style={ style } key={ e.id }>{ e.name }{ e.screen }</div>
+                    ? <div style={ style } key={ e.id }>{ e.screen }</div>
                     : null
                     
             )

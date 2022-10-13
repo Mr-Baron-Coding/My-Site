@@ -1,5 +1,20 @@
   /*  mobile */
-@media only screen and ( max-width: 500px ) {}
+@media only screen and ( max-width: 500px ) {
+    .mobileMenusDivStyle {
+        display: block;
+        position: fixed;
+        width: 80%;
+        margin: 2% 0 0 2%;
+        z-index: 2;
+    }
+    .selectStyle {
+        background-color: rgb(32, 32, 32);
+        border: 1px solid rgba(255, 0, 0, 0.575);
+        color: red;
+        border-radius: 6px;
+        padding: 5px;
+    }
+}
 
 /* tablet */
 @media only screen and ( min-width: 500px ) and ( max-width: 1000px ) {}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-// import '../ImgStyling.css';
+import '../../ImgStyling.css';
 import Carousel from 'react-bootstrap/Carousel';
 
 import SuGamepic from '../../images/SudokoDisplay.jpg';
@@ -14,12 +14,11 @@ export default function MyWork() {
   //   setIndex(selectedIndex);
   // activeIndex={index} onSelect={handleSelect}
   // };
-
-  const [projects, setProjects] = useState([
+  const projects = [
     { name: 'Sudoko', id: 1, pic: SuGamepic, alt: "Sudoko Pic", path: 'Sudoko', className: 'sudoPicStyle' },
     { name: 'XO', id: 2, pic: XOGamePic, alt: "XO Pic", path: 'XO', className: 'XOPicStyle' },
     { name: 'Calculator', id: 3, pic: CalcPic, alt: "Calculator Pic", path: 'Calculator', className: 'CalcPicStyle' }
-  ]);
+  ];
 
   const carouselDisplay = () => {
     return (
@@ -50,7 +49,7 @@ export default function MyWork() {
       <Carousel variant="dark">
           { carouselDisplay() }
       </Carousel>
-      <Outlet />
+      {/* <Outlet /> */}
 
     </div>
        

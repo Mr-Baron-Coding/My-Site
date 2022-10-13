@@ -35,7 +35,7 @@ export default function Body() {
 
   const iconDisplay = () => {
     return (
-      !openClosed ? <CgMenu size={ 26 } /> : <CgCloseR size={ 26 } />
+      !openClosed ? <div className='navAnimationContainer'><CgMenu size={ 26 } /></div> : <CgCloseR size={ 26 } color='red' />
     )
   };
 

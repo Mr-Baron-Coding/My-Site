@@ -2,7 +2,6 @@
 @media only screen and ( max-width: 500px ) {   
      /* main screen  */
     .bodyStyle { 
-        border: 8px solid gold;
         height: 100%;
         width: 100%;
         display: grid;
@@ -15,7 +14,6 @@
     }
     .mobileScreenSwitch {
         grid-area: switch;
-        border: 1px solid white;
     }
     .largeDisplay {
         display: none;
@@ -23,23 +21,19 @@
     /* header */
     .headerStyle {
         grid-area: header;
-        border: 8px solid red;
 
     }
     .navDivStyle {
         grid-area: nav;
         padding-top: 1rem;
-        border: 8px solid blue;
 
     }
     /* bottom screen part */
     .mobileSwitchTop {
         margin-top: 2rem;
         display: grid;
-        grid-area: topSwitch;
         grid-template-rows: auto auto;
         gap: 5px;
-        border: 8px solid green;
 
     }
     .hiDivStyle {
@@ -129,13 +123,23 @@
         position: relative; 
         display: grid;
         grid-template: 
-            'header header nav' 
-            'info displayWindow displayWindow' 
-            'pic displayWindow displayWindow' ; 
-        grid-template-rows: 0.5fr auto auto;
-        grid-template-columns: auto auto 0.15fr ;
+            'header nav' 
+            'bottomDisplay bottomDisplay';
+        grid-template-rows: 0.5fr auto;
+        grid-template-columns: auto 0.15fr;
         gap: 2%;
 
+    }
+    .largeDisplay {
+        border: 10px solid black;
+        grid-area: bottomDisplay;
+        height: 100%;
+        display: grid;
+        grid-template: 
+        'info displayWindow'
+        'pic displayWindow';
+        grid-template-rows: auto auto;
+        grid-template-columns: 0.5fr auto;
     }
 
     .headerStyle {
@@ -161,7 +165,6 @@
     .dipalyDivStyle {
         grid-area: displayWindow;
         border: 5px solid green;
-        padding-top: 5rem;
 
     }
     .profilePicStyle {
