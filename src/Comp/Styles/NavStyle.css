@@ -1,0 +1,8 @@
+  /*  mobile */
+@media only screen and ( max-width: 500px ) {}
+
+/* tablet */
+@media only screen and ( min-width: 500px ) and ( max-width: 1000px ) {}
+
+/* screen */
+@media only screen and ( min-width: 1001px ) {}

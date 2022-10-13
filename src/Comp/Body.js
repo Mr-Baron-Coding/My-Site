@@ -53,7 +53,6 @@ export default function Body() {
             { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <div onClick={ () => dispatch(openClose(!openClosed)) }>{ iconDisplay() }</div> }
 {/* back home button */}
             { mobile && screenNumber !== 0 ? <AiOutlineHome size={ 26 } onClick={ () => dispatch(openMenuScreen(0)) } /> : null }
-
           </div>
 
 {/* mobile switch bottom part view */}
@@ -74,14 +73,16 @@ export default function Body() {
             </div>
             
 {/* for pc and laptops */}
-          <div className='hiDivStyle'>
-            <WelcomeField />
-          </div>
-          <div className='picDivDivStyle'>
-            <img src={profPic} alt='profilePic' className='profilePicStyle' />
-          </div>
-          <div className='dipalyDivStyle'>
-            <DisplayWindow windowNumber={ windowNumber } />
+          <div className='largeDisplay'>
+            <div className='hiDivStyle'>
+              <WelcomeField />
+            </div>
+            <div className='picDivDivStyle'>
+              <img src={profPic} alt='profilePic' className='profilePicStyle' />
+            </div>
+            <div className='dipalyDivStyle'>
+              <DisplayWindow windowNumber={ windowNumber } />
+            </div>
           </div>
       </div>
     </div>

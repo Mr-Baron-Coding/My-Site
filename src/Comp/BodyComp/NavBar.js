@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { openClose, openMenuScreen } from '../Features/mobileSlice';
 // import './HeaderStyle.css';
+import '../Styles/NavStyle.css';
 
 export default function Menus(props) {
   const dispatch = useDispatch();
