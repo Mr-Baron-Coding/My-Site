@@ -49,7 +49,7 @@ export default function Body() {
           <div className='headerStyle'>  {/* header */}
             <Header />      
           </div>
-          <div className='menuDivStyle'> {/* navigation */}
+          <div className='navDivStyle'> {/* navigation */}
             { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <div onClick={ () => dispatch(openClose(!openClosed)) }>{ iconDisplay() }</div> }
 {/* back home button */}
             { mobile && screenNumber !== 0 ? <AiOutlineHome size={ 26 } onClick={ () => dispatch(openMenuScreen(0)) } /> : null }
@@ -57,26 +57,29 @@ export default function Body() {
           </div>
 
 {/* mobile switch bottom part view */}
-            <div className='mobileSwitchTop'>
+            <div className='mobileScreenSwitch'>
               { screenNumber === 0 
-                ? 
-                  <>
-                    <div className='hiDivStyle'>
-                      <WelcomeField />
-                    </div>
-                    <div className='picDivDivStyle'>
-                      <img src={profPic} alt='profilePic' className='profilePicStyle' />
-                    </div>
-                  </>
-                : mobile 
-                  ? <div className='mobileSwitchBottom'>
-                      <DisplayWindow windowNumber={ screenNumber } />
-                    </div>
-                  : <WelcomeField />
+                ? <div className='mobileSwitchTop'>
+                      <div className='hiDivStyle'>
+                        <WelcomeField />
+                      </div>
+                      <div className='picDivDivStyle'>
+                        <img src={profPic} alt='profilePic' className='profilePicStyle' />
+                      </div>
+                  </div>
+                : <div className='mobileSwitchBottom'>
+                    <DisplayWindow windowNumber={ screenNumber } />
+                  </div>
               }
             </div>
             
 {/* for pc and laptops */}
+          <div className='hiDivStyle'>
+            <WelcomeField />
+          </div>
+          <div className='picDivDivStyle'>
+            <img src={profPic} alt='profilePic' className='profilePicStyle' />
+          </div>
           <div className='dipalyDivStyle'>
             <DisplayWindow windowNumber={ windowNumber } />
           </div>
