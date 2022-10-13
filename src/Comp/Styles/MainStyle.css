@@ -1,0 +1,161 @@
+    /*  mobile */
+@media only screen and ( max-width: 500px ) {   
+     /* main screen  */
+    .bodyStyle { 
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template: 
+        'header nav'
+        'topSwitch topSwitch'; 
+        grid-template-rows: 0.2fr 1fr;
+        grid-template-columns: 0.9fr auto ;
+
+    }
+    /* header */
+    .headerStyle {
+        grid-area: header;
+
+    }
+    .menuDivStyle {
+        grid-area: nav;
+        padding-top: 1rem;
+
+    }
+    /* bottom screen part */
+    .mobileSwitchTop {
+        margin-top: 2rem;
+        display: grid;
+        grid-area: topSwitch;
+        grid-template-rows: auto auto;
+        gap: 5px;
+
+    }
+    .hiDivStyle {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+    }
+    .hiDivStyle p { 
+        text-align: left;
+    }
+    /* img styling */
+    .profilePicStyle {
+        height: 15rem;
+        width: 15rem;
+        border-radius: 15%;
+        filter: grayscale(100%);
+    }
+    .dipalyDivStyle {
+        display: none;
+
+    }
+
+}
+
+    /* tablet */
+@media only screen and ( min-width: 500px ) and ( max-width: 1000px ) {
+    .bodyStyle { 
+        height: 100%;
+        display: grid;
+        grid-template: 
+            'header nav'
+            'topSwitch topSwitch';
+        grid-template-rows: 0.5fr auto;
+        grid-template-columns: auto 0.15fr ;
+
+    }
+    .headerStyle {
+        grid-area: header;
+        border: 5px solid green;
+
+    }
+    .menuDivStyle {
+        grid-area: nav;
+        border: 5px solid red;
+
+    }
+    .mobileSwitchTop {
+        display: grid;
+        grid-area: topSwitch;
+        grid-template: 'hi pic';
+        gap: 5px;
+        border: 6px solid white;
+    }
+    .hiDivStyle {
+        grid-area: hi;
+        border: 5px solid blue;
+
+    }
+    .picDivDivStyle {
+        grid-area: pic;
+        border: 3px solid red;
+
+    }
+    .profilePicStyle {
+        height: 15rem;
+        width: 15rem;
+        border-radius: 5%;
+        filter: grayscale(100%);
+    }
+
+}
+
+    /* screen */
+@media only screen and ( min-width: 1001px ) {
+    .bodyStyle { 
+        border: 8px solid gold;
+        margin: auto;
+        padding: 1%;
+        margin-top: 2%;
+        height: 90%; 
+        width: 90%;
+        position: relative; 
+        display: grid;
+        grid-template: 
+            'header header nav' 
+            'info displayWindow displayWindow' 
+            'pic displayWindow displayWindow' ; 
+        /* grid-template-rows: 0.5fr auto auto; */
+        grid-template-rows: auto;
+        /* grid-template-columns: auto auto 0.15fr ; */
+        grid-template-columns: auto ;
+        gap: 2%;
+
+    }
+
+    .headerStyle {
+        grid-area: header;
+        border: 5px solid pink;
+
+    }
+    .menuDivStyle {
+        grid-area: nav;
+        border: 5px solid red;
+
+    }
+    .hiDivStyle {
+        grid-area: info;
+        border: 5px solid blue;
+
+    }
+    .picDivDivStyle {
+        grid-area: pic;
+        border: 3px solid darkgreen;
+
+    }
+    .dipalyDivStyle {
+        grid-area: displayWindow;
+        border: 5px solid green;
+        padding-top: 5rem;
+
+    }
+    .profilePicStyle {
+        height: 15rem;
+        width: 15rem;
+        border-radius: 5%;
+        filter: grayscale(100%);
+    }
+
+}

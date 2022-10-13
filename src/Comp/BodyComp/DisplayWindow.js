@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Contact from './Contact';
-import Skills from './Skills';
-import About from './About';
-import MyWork from './MyWork';
+import Contact from '../NavComp/Contact';
+import Skills from '../NavComp/Skills';
+import About from '../NavComp/About';
+import MyWork from '../NavComp/MyWork';
 
-import './BodyStyle.css';
+// import './BodyStyle.css';
 
 export default function DisplayWindow(props) {
     const displayList = [

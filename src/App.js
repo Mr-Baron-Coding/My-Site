@@ -17,7 +17,7 @@ import ProjectsScreen from './Screens/ProjectsScreen';
 
 export default function App() {
   const dispatch = useDispatch();
-  const matches = useMediaQuery('(max-width:450px)');
+  const matches = useMediaQuery('(max-width:1000px)');
 
   useEffect(() => {
     dispatch(changeScreenSize(matches));

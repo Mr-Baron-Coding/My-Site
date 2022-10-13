@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import Header from './Header';
+
+import Header from './BodyComp/Header.js';
+import NavBar from './BodyComp/NavBar.js';
+import WelcomeField from './BodyComp/WelcomeField.js';
+import DisplayWindow from './BodyComp/DisplayWindow.js';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { openClose } from './Features/mobileSlice.js'
-import './BodyStyle.css';
-import './RespoStyle.css';
-import DisplayWindow from './DisplayWindow';
-import WelcomeField from './WelcomeField';
-import Menus from './Menus';
+import { openClose, openMenuScreen } from './Features/mobileSlice.js'
+import './Styles/MainStyle.css';
+
+import { CgMenu, CgCloseR } from "react-icons/cg";  // icons
+import { AiOutlineHome } from "react-icons/ai";
+import profPic from '../images/ProfilePic.jpg';     // profile pic
+
 
 export default function Body() {
   const dispatch = useDispatch();
@@ -16,7 +22,7 @@ export default function Body() {
 
   const [windowNumber, setWindowNumber] = useState(0);
 
-  const addSceenLoad = (e) => {
+  const addScreenLoad = (e) => {
     console.log('Screen ' + e);
     setWindowNumber(e);
   };
@@ -25,41 +31,56 @@ export default function Body() {
     if ( mobile && openClosed === true ) {
       dispatch(openClose(false));
     }
-  }
+  };
 
-  const displayStyle  = { height: '60%', color: 'white', position: 'relative' };
-  // const displayContentStyle = { color: 'white', height: '10%', border: '4px solid yellow' };
+  const iconDisplay = () => {
+    return (
+      !openClosed ? <CgMenu size={ 26 } /> : <CgCloseR size={ 26 } />
+    )
+  };
 
   return (
-    <div className='mainRespoStyle' onClick={ () => closeMenu() } >
-      <div className='headerRespoStyle'>
-        <Header />      
+    <div style={{ height: '100%' }}>
+      { openClosed && mobile ? <NavBar /> : null }
+
+      <div className='bodyStyle' onClick={ () => closeMenu() }>
+        <div className='topBorderStyles'></div> {/* corner top */}
+        <div className='bottomBorderStyles'></div> {/* corner bottom */}
+          <div className='headerStyle'>  {/* header */}
+            <Header />      
+          </div>
+          <div className='menuDivStyle'> {/* navigation */}
+            { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <div onClick={ () => dispatch(openClose(!openClosed)) }>{ iconDisplay() }</div> }
+{/* back home button */}
+            { mobile && screenNumber !== 0 ? <AiOutlineHome size={ 26 } onClick={ () => dispatch(openMenuScreen(0)) } /> : null }
+
+          </div>
+
+{/* mobile switch bottom part view */}
+            <div className='mobileSwitchTop'>
+              { screenNumber === 0 
+                ? 
+                  <>
+                    <div className='hiDivStyle'>
+                      <WelcomeField />
+                    </div>
+                    <div className='picDivDivStyle'>
+                      <img src={profPic} alt='profilePic' className='profilePicStyle' />
+                    </div>
+                  </>
+                : mobile 
+                  ? <div className='mobileSwitchBottom'>
+                      <DisplayWindow windowNumber={ screenNumber } />
+                    </div>
+                  : <WelcomeField />
+              }
+            </div>
+            
+{/* for pc and laptops */}
+          <div className='dipalyDivStyle'>
+            <DisplayWindow windowNumber={ windowNumber } />
+          </div>
       </div>
-      { !mobile ?  
-                  <div className='menusRespoStyle'>
-                    <Menus add={ (x) => addSceenLoad(x) }/>
-                  </div>
-                : null
-      }
-      { !mobile 
-          ? <div><WelcomeField /></div> 
-          : screenNumber === 0 
-            ? <div><WelcomeField /></div> 
-            : <div style={ displayStyle }>
-                <DisplayWindow windowNumber={ screenNumber } />
-              </div> }
-      {/* <div>
-        <WelcomeField />
-      </div> */}
-      { !mobile ? 
-                  <div>
-                  <DisplayWindow windowNumber={ windowNumber } />      
-                  </div>
-                : null
-      }
-      {/* <div>
-        <DisplayWindow windowNumber={ windowNumber } />      
-      </div> */}
     </div>
   )
 }

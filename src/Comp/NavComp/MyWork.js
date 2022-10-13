@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import '../ImgStyling.css';
+// import '../ImgStyling.css';
 import Carousel from 'react-bootstrap/Carousel';
 
-import SuGamepic from '../images/SudokoDisplay.jpg';
-import XOGamePic from '../images/XODisplay.jpg';
-import CalcPic from '../images/CalcDisplay.jpg';
+import SuGamepic from '../../images/SudokoDisplay.jpg';
+import XOGamePic from '../../images/XODisplay.jpg';
+import CalcPic from '../../images/CalcDisplay.jpg';
 
 export default function MyWork() {
   // const [index, setIndex] = useState(0);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { openClose, openMenuScreen } from './Features/mobileSlice';
-import './HeaderStyle.css';
+import { openClose, openMenuScreen } from '../Features/mobileSlice';
+// import './HeaderStyle.css';
 
 export default function Menus(props) {
   const dispatch = useDispatch();
@@ -56,4 +56,4 @@ export default function Menus(props) {
   return (
     mobile ? openClosed ? mobileDisplay() : null : pcDisplay()
   )
-}
+};

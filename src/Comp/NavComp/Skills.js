@@ -1,5 +1,5 @@
 import React from 'react';
-import './BodyStyle.css';
+// import './BodyStyle.css';
 
 export default function Skills() {
   return (
