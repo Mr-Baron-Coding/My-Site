@@ -125,8 +125,8 @@
         grid-template: 
             'header nav' 
             'bottomDisplay bottomDisplay';
-        grid-template-rows: 0.5fr auto;
-        grid-template-columns: auto 0.15fr;
+        grid-template-rows: 20% 75%;
+        grid-template-columns: auto 20%;
         gap: 2%;
 
     }
@@ -139,7 +139,7 @@
         'info displayWindow'
         'pic displayWindow';
         grid-template-rows: auto auto;
-        grid-template-columns: 0.5fr auto;
+        grid-template-columns: 30% 70%;
     }
 
     .headerStyle {

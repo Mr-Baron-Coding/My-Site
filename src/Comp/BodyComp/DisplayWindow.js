@@ -5,7 +5,7 @@ import Skills from '../NavComp/Skills';
 import About from '../NavComp/About';
 import MyWork from '../NavComp/MyWork';
 
-// import './BodyStyle.css';
+import '../Styles/DisplayWindowStyle.css';
 
 export default function DisplayWindow(props) {
     const displayList = [
@@ -14,15 +14,14 @@ export default function DisplayWindow(props) {
         { name: 'Get in touch', id: 3, screen: <Contact /> },
         { name: 'My Work', id: 4, screen: <MyWork /> },
         { name: 'Eithan', id: 5}
-    ]
+    ];
 
-    const style = { height: '100%' }
   return (
-    <div className='displayWindowStyle'>
-        {displayList.map((e,i) => {
+    <div className='displayContantContainer'>
+        {displayList.map((e) => {
             return (
                 props.windowNumber === e.id 
-                    ? <div style={ style } key={ e.id }>{ e.screen }</div>
+                    ? <div key={ e.id }>{ e.screen }</div>
                     : null
                     
             )

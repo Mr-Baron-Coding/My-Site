@@ -12,9 +12,6 @@ export default function About() {
         projects.
       </p>
       <p>
-        Remove headers....  
-      </p>
-      <p>
         Completed frontend course through SVCollege in 2020. 
         After internship perioed with BeSt continued working on my own projects and developing   
       </p>
