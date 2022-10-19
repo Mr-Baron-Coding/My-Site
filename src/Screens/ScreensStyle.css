@@ -88,7 +88,7 @@
         'header display'
         'nav display';
         grid-template-columns: 0.5fr 1fr;
-        border: 10px solid blue;
+        border: 10px solid green;
 
     }
     .projectDisplayWindow {

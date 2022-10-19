@@ -7,9 +7,7 @@
     /* screen */
 @media only screen and ( min-width: 1001px ) {
     .displayContantContainer {
-        border: 2px solid blue;
-        width: 80%;
-        height: 90%;
+        height: 100%;
         margin: auto;
     }
 

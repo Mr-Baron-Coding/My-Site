@@ -114,10 +114,8 @@
 @media only screen and ( min-width: 1001px ) {
     /* display styling */
     .bodyStyle { 
-        border: 8px solid gold;
         margin: auto;
         padding: 1%;
-        margin-top: 2%;
         height: 90%; 
         width: 90%;
         position: relative; 
@@ -131,7 +129,6 @@
 
     }
     .largeDisplay {
-        border: 10px solid black;
         grid-area: bottomDisplay;
         height: 100%;
         display: grid;
@@ -144,27 +141,34 @@
 
     .headerStyle {
         grid-area: header;
-        border: 5px solid pink;
-
+                
+    }
+    .headerSubStyle div {
+        width: 40%;
+    }
+    .headerName {
+        font-size: 3rem;
+        margin-left: 1rem;
+        
+    }
+    .headerDiscription {
+        font-size: 2rem;
+        margin-left: 1rem;
     }
     .navDivStyle {
         grid-area: nav;
-        border: 5px solid red;
 
     }
     .hiDivStyle {
         grid-area: info;
-        border: 5px solid blue;
 
     }
     .picDivDivStyle {
         grid-area: pic;
-        border: 3px solid darkgreen;
 
     }
     .dipalyDivStyle {
         grid-area: displayWindow;
-        border: 5px solid green;
 
     }
     .profilePicStyle {

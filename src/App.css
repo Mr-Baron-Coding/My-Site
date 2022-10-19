@@ -15,7 +15,6 @@
     /* screen */
 @media only screen and ( min-width: 1001px ) {
   .App { 
-    border: 3px solid gold; 
     background-image: url('./images/free-wallpapers-site-14.jpg');
     background-repeat: no-repeat;
     background-size: cover;

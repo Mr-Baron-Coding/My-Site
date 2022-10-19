@@ -1,0 +1,72 @@
+.carouselContainer {
+    width: 100%;
+    height: 100%;
+
+}
+
+.list {
+    display: flex;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    perspective: 50rem;
+    border: 1px solid red;
+
+}
+
+li {
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 100px;
+    width: 100%;
+    height: 500px;
+    border-radius: 5%;
+    box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+    position: absolute;
+    transition: all 1s ease-in;
+
+}
+#true {
+    color: red;
+}
+/* .item_1 {
+    background: linear-gradient(270deg, #b9b9b9 10%, #797979 100%);
+    color: white;
+    transform: translateX(15%);    
+    z-index: 5;
+    flex: 2;
+    
+}
+.item_2 {
+    background: linear-gradient(270deg, #b9b9b97e 10%, #79797977 100%);
+    opacity: 0.8;
+    filter: blur(1px) grayscale(30%);
+    transform: translateX(-45%) translateY(3%);
+    z-index: 3;
+    flex: 1;
+    transition: flex;
+}
+.item_3 {
+    background: linear-gradient(270deg, #b9b9b97e 10%, #79797977 100%);
+    opacity: 0.6;
+    filter: blur(2px) grayscale(40%);
+    transform: translateX(-120%) translateY(6%);
+    z-index: 2;
+    flex: 1;
+
+}
+.item_4 {
+    background: linear-gradient(270deg, #b9b9b97e 10%, #79797977 100%);
+    transform: translateX(-200%) translateY(9%);
+    filter: blur(2px) grayscale(50%);
+    opacity: 0.4;
+    z-index: 1;
+    flex: 1;
+
+} */
