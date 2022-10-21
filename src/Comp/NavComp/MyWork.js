@@ -15,11 +15,6 @@ export default function MyWork() {
     { name: 'XO', id: 2, pic: XOGamePic, alt: "XO Pic", path: 'XO', className: 'XOPicStyle', item: 'item_2' },
     { name: 'Calculator', id: 3, pic: CalcPic, alt: "Calculator Pic", path: 'Calculator', className: 'CalcPicStyle', item: 'item_3' }
   ]);
-  // const projects = [
-  //   { name: 'Sudoko', id: 1, pic: SuGamepic, alt: "Sudoko Pic", path: 'Sudoko', className: 'sudoPicStyle' },
-  //   { name: 'XO', id: 2, pic: XOGamePic, alt: "XO Pic", path: 'XO', className: 'XOPicStyle' },
-  //   { name: 'Calculator', id: 3, pic: CalcPic, alt: "Calculator Pic", path: 'Calculator', className: 'CalcPicStyle' }
-  // ];
 
   const carouselDisplay = () => {
     return (
@@ -60,30 +55,24 @@ export default function MyWork() {
   };
 
   return (
-    // <div>
-    //   <Carousel variant="dark">
-    //       { carouselDisplay() }
-    //   </Carousel>
-    //   {/* <Outlet /> */}
-
-    // </div>
     <div className='carouselContainer'>
         <div className='carousel carList'>
           {projects.map((e, i) => {
               return (
-                <div key={ i } className={`${ e.item } carousel_item`} onMouseEnter={ () => toggleActive(i) }>
+                <div 
+                  key={ i } 
+                  className={`${ e.item } carousel_item`} 
+                  // e.item == 'item_1' ? onClick={ () => toggleActive(i) } : onMouseEnter={ () => toggleActive(i) }  
+                  onMouseEnter={ () => toggleActive(i) }
+                >
                   <nav>
                     <Link to={`/projects/${ e.path }`} style={{ color: 'black' }}>
                       { e.name }
-                      { e.item === 'item_1' 
-                        ? <img
-                            className={ `${ e.className } picStyle` }
-                            src={ e.pic }
-                            alt={ e.alt }
-                          />
-                        : null
-                      }
-                      
+                        <img
+                          className={ `${ e.className } picStyle` }
+                          src={ e.pic }
+                          alt={ e.alt }
+                        />             
                     </Link>
                   </nav>
                 </div>
