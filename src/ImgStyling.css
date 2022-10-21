@@ -18,6 +18,6 @@
 /* screen */
 @media only screen and ( min-width: 1001px ) {
     .picStyle {
-        width: 20rem;
+        size: auto;
     }
 }

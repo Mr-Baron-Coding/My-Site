@@ -30,7 +30,6 @@ export default function ProjectsScreen() {
             className='linky'
               to={ l.to } 
               key={ `Link_${ l.id }` }
-              // style={{ padding: '0 5px 0 5px', margin: 'auto'}}
             >
               <div className='linkStyle'>
                 { l.pic }

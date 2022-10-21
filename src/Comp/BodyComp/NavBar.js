@@ -8,32 +8,17 @@ export default function Menus(props) {
   const mobile = useSelector((state) => state.mobile.isMobile);
   const openClosed = useSelector((state) => state.mobile.menuOpend);
 
-    const sayHello = (e) => {
-        props.add(e);
-        let arr = topNav;
-        arr.forEach((cell) => cell.active = false);
-        arr[e-1].active = true;
-        setTopNav(arr => [...arr])
-        console.log(arr);
-      };
     const [topNav, setTopNav] = useState([
       { val: 'About', id: 1, active: false },
       { val: 'Skills', id: 2, active: false },
       { val: 'Contact', id: 3, active: false },
       { val: 'Projects', id: 4, active: false }
     ]);
-    // let topNav = [
-    //   { val: 'About', id: 1, active: true },
-    //   { val: 'Skills', id: 2, active: false },
-    //   { val: 'Contact', id: 3, active: false },
-    //   { val: 'Projects', id: 4, active: false },
-    //   // { val: 'Link', id: 5 },
-    // ];
 
     const userPress = (val) => {
       dispatch(openMenuScreen(val));
       dispatch(openClose());
-    }
+    };
     
     const mobileDisplay = () => {
       return (
@@ -47,6 +32,15 @@ export default function Menus(props) {
           })}
         </div>
       )
+    };
+
+    const sayHello = (e) => {
+      props.add(e);
+      let arr = topNav;
+      arr.forEach((cell) => cell.active = false);
+      arr[e-1].active = true;
+      setTopNav(arr => [...arr])
+      console.log(arr);
     };
 
     const pcDisplay = () => {

@@ -1,0 +1,57 @@
+.carouselContainer {
+    border: 2px solid blue;
+    --carousel-height: 500px;
+    --carousel-width: 1000px;
+    --carousel-item-height: 25rem;
+    --carousel-item-width: 20rem;
+  
+    width: 100%;
+
+}
+
+.carousel {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: var(--carousel-height);
+    justify-content: center;
+    align-items: center;
+    perspective: 50rem;
+    border: 1px solid red;
+
+}
+.carousel_item {
+    height: var(--carousel-item-height);
+    width: var(--carousel-item-width);
+    position: absolute;
+    transition: all 1s ease-in-out;
+    box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+    font-size: 20px;
+    border-radius: 10px;
+
+}
+
+.item_1 {
+    background: linear-gradient(270deg, #a3a3a398 10%, #94949442 100%);
+    z-index: 4;
+    opacity: 1;
+    transform: translateX(-50%) translateY(2%);
+    border: 1px solid rgba(0, 0, 0, 0.459);
+    
+}
+.item_2 {
+    background: linear-gradient(#868686a2, #797979 50%);
+    opacity: 1;
+    transform: translateX(90%) translateY(20%) scale(0.5);
+    z-index: 3;
+    border: 1px solid black;
+
+}
+.item_3 {
+    background: linear-gradient(#868686a2, #797979 50%);
+    opacity: 0.8;
+    border: 1px solid black;
+    transform: translateX(95%) translateY(10%) scale(0.5);
+    z-index: 2;
+
+}
