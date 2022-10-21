@@ -1,34 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../Styles/NavCarouselStyle.css';
 
 export default function NavDisplay() {
+  const ref = useRef(null);
   const [carList, setCarList] = useState([
-    { active: false, displayed: 1, name: 'liat', item: 'item_1' },
-    { active: true, displayed: 2, name: 'eithan', item: 'item_2' },
-    { active: false, displayed: 3, name: 'emma', item: 'item_3' },
-    { active: false, displayed: 4, name: 'mike', item: 'item_4' }
+    { displayed: 1, name: '1', item: 'item_1' },
+    { displayed: 2, name: '2', item: 'item_2' },
+    { displayed: 3, name: '3', item: 'item_3' },
+    { displayed: 4, name: '4', item: 'item_4' }
   ]);
+
+  // useEffect(() => {
+  //   let myTest = ref.current.firstChild;
+  //   console.log(myTest);
   
-  const changeActive = (index) => {
+  // }, [carList]);
+  
+  const toggleActive = (index) => {
     let arr = carList.filter((e,i) => i !== index);
+    let x = 0;
     let line = carList[index];
+    while ( x < index ) {
+      let shifter = arr.shift();
+      arr.push(shifter);
+      x++;
+    };
     arr.unshift(line);
-    arr.forEach((e,i) => { e.displayed = i+1; e.item = `item_${i+1}` });
+    arr.forEach((e,i) => { e.item = `item_${i+1} carousel_item` });
     setCarList((arr) => [...arr]);
     
   };
 
   return (
     <div className='carouselContainer'>
-        <div className='carousel carList' >
+        <div className='carousel carList' ref={ref}>
           {carList.map((e, i) => {
               return (
-                // <div key={ i } className={ e.active ? `carousel item_${ e.displayed } ${ e.active }` : `carousel item_${ e.displayed }`}  onClick={ () => changeActive(i) }>
-                <div key={ i } className={ e.item } id='carousel_item' onClick={ () => changeActive(i) }>
+                <div key={ i } className={`${ e.item } carousel_item`} onClick={ () => toggleActive(i) }>
                   { e.name }
                 </div>
               ) 
-        })};
+        })}
         </div>
     </div>
   )

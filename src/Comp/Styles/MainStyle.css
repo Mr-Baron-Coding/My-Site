@@ -124,7 +124,7 @@
             'header nav' 
             'bottomDisplay bottomDisplay';
         grid-template-rows: 20% 75%;
-        grid-template-columns: auto 20%;
+        grid-template-columns: auto 35%;
         gap: 2%;
 
     }
@@ -141,6 +141,7 @@
 
     .headerStyle {
         grid-area: header;
+        border: 1px solid black;
                 
     }
     .headerSubStyle div {
@@ -157,6 +158,7 @@
     }
     .navDivStyle {
         grid-area: nav;
+        border: 1px solid blue;
 
     }
     .hiDivStyle {

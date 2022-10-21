@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { openClose, openMenuScreen } from '../Features/mobileSlice';
-// import './HeaderStyle.css';
 import '../Styles/NavStyle.css';
 
 export default function Menus(props) {
@@ -10,16 +9,26 @@ export default function Menus(props) {
   const openClosed = useSelector((state) => state.mobile.menuOpend);
 
     const sayHello = (e) => {
-        props.add(e)
+        props.add(e);
+        let arr = topNav;
+        arr.forEach((cell) => cell.active = false);
+        arr[e-1].active = true;
+        setTopNav(arr => [...arr])
+        console.log(arr);
       };
-
-    let topNav = [
-      { val: 'About', id: 1 },
-      { val: 'Skills', id: 2 },
-      { val: 'Contact', id: 3 },
-      { val: 'Projects', id: 4 },
-      { val: 'Link', id: 5 },
-    ];
+    const [topNav, setTopNav] = useState([
+      { val: 'About', id: 1, active: false },
+      { val: 'Skills', id: 2, active: false },
+      { val: 'Contact', id: 3, active: false },
+      { val: 'Projects', id: 4, active: false }
+    ]);
+    // let topNav = [
+    //   { val: 'About', id: 1, active: true },
+    //   { val: 'Skills', id: 2, active: false },
+    //   { val: 'Contact', id: 3, active: false },
+    //   { val: 'Projects', id: 4, active: false },
+    //   // { val: 'Link', id: 5 },
+    // ];
 
     const userPress = (val) => {
       dispatch(openMenuScreen(val));
@@ -45,9 +54,11 @@ export default function Menus(props) {
         <div className='MenusDivStyle'>
         { topNav.map((cell) => {
           return (
-            <div key={`id_${cell.id}`} onMouseEnter={ () => sayHello(cell.id) }>
+            <div key={`id_${ cell.id }`} className={`navTab_${ cell.val } ${ cell.active }`} onMouseEnter={ () => sayHello(cell.id) }>
               { cell.val }
+              <div className='underLine'></div>
             </div>
+            
           )
         })}
       </div>
