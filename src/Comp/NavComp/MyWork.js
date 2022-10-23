@@ -49,8 +49,16 @@ export default function MyWork() {
       x++;
     };
     arr.unshift(line);
-    arr.forEach((e,i) => { e.item = `item_${i+1} carousel_item` });
+    arr.forEach((e,i) => { e.item = `item_${i+1}` });
     setProjects((arr) => [...arr]);
+    // let as = document.querySelector('.carousel');
+    // console.log(as);
+    // let rs = getComputedStyle(as);
+    // let bs = rs.getPropertyValue('--carousel-border');
+    // console.log(rs);
+    // console.log(bs);
+    // as.style.setProperty('--carousel-border', '4px solid green');
+    
     
   };
 
@@ -63,18 +71,21 @@ export default function MyWork() {
                   key={ i } 
                   className={`${ e.item } carousel_item`} 
                   // e.item == 'item_1' ? onClick={ () => toggleActive(i) } : onMouseEnter={ () => toggleActive(i) }  
-                  onMouseEnter={ () => toggleActive(i) }
+                  onClick={ () => toggleActive(i) }
                 >
-                  <nav>
-                    <Link to={`/projects/${ e.path }`} style={{ color: 'black' }}>
-                      { e.name }
-                        <img
-                          className={ `${ e.className } picStyle` }
-                          src={ e.pic }
-                          alt={ e.alt }
-                        />             
-                    </Link>
-                  </nav>
+                  { e.item == 'item_1' 
+                    ? <nav>
+                        <Link to={`/projects/${ e.path }`} style={{ color: 'black' }}>
+                            <img
+                              className={ `${ e.className } picStyle` }
+                              src={ e.pic }
+                              alt={ e.alt }
+                            />             
+                        </Link>
+                      </nav>
+                    : <div>{ e.name } </div>
+                  }
+                  
                 </div>
               ) 
         })}

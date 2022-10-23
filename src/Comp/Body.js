@@ -23,7 +23,6 @@ export default function Body() {
   const [windowNumber, setWindowNumber] = useState(0);
 
   const addScreenLoad = (e) => {
-    console.log('Screen ' + e);
     setWindowNumber(e);
   };
 

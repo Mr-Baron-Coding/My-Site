@@ -40,7 +40,6 @@ export default function Menus(props) {
       arr.forEach((cell) => cell.active = false);
       arr[e-1].active = true;
       setTopNav(arr => [...arr])
-      console.log(arr);
     };
 
     const pcDisplay = () => {
