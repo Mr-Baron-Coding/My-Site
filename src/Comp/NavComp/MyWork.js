@@ -73,7 +73,7 @@ export default function MyWork() {
                   // e.item == 'item_1' ? onClick={ () => toggleActive(i) } : onMouseEnter={ () => toggleActive(i) }  
                   onClick={ () => toggleActive(i) }
                 >
-                  { e.item == 'item_1' 
+                  { e.item === 'item_1' 
                     ? <nav>
                         <Link to={`/projects/${ e.path }`} style={{ color: 'black' }}>
                             <img

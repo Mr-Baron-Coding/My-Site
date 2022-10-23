@@ -15,6 +15,12 @@ export default function TopMenuField() {
     const isGameChecked = useSelector((state) => state.table.checkGame);            // are we checking the game after submit?
     const isEasyMode = useSelector((state) => state.table.easyMode);
 
+    const topMenuButtons = [
+        { text: 'Start Game', id : 1, click: 'openDiffMenu()' },
+        { text: 'Auto fill', id : 2, click: 'openDiffMenu()' },
+        { text: 'SuperEasy', id : 3, click: 'makeItSuperEasy()' }
+    ];
+
     const modeButtons = [
         { text: 'Easy', id: 1, number: Math.floor(Math.random() * (36 - 32 + 1) ) + 32 },
         { text: 'Medium', id: 2, number: Math.floor(Math.random() * (26 - 24 + 1) ) + 24 },
@@ -23,21 +29,19 @@ export default function TopMenuField() {
 
     let easyColor = isEasyMode ? 'pink' : 'black';
 
-    const openMenu = () => {
+    const openDiffMenu = () => {
         dispatch(displayModeButtons(true));
 
-    }
+    };
 
     const beginTimer = (diff) => {
         if ( isTimeRunning === true ) {
-            // debugger
             dispatch(startWatch(false));
             dispatch(dispalyBottomMessage(true));
             dispatch(displayModeButtons(false));
             dispatch(tempDiff(diff-1));             // start the game - add difficulty setting
         }
         else {
-            // debugger
             if ( isGameChecked ) {
                 dispatch(checkGame(false));
                 dispatch(resetWatch());
@@ -69,30 +73,34 @@ export default function TopMenuField() {
     // };
 
   return (
-    <div style={{ marginBottom: '2rem' }}>
+    <div className='buttonContainer'>
         <div className='topRowButtonsStyle'>
-            <div onClick={ () => openMenu() }>New Game</div>
-            <div onClick={ () => dispatch(autoFillInput(true))}>Auto fill</div>  {/* remove */}
-            <div style={{ color:  easyColor }} onClick={ () => makeItSuperEasy() }>SuperEasy</div>  {/* remove */}
+            { topMenuButtons.map((button,i) => {
+                return (
+                    <div onClick={ '()=>' + button.click }>{ button.text }</div>
+                )
+            })}
+            {/* <div onClick={ () => openMenu() }>New Game</div> */}
+            {/* <div onClick={ () => dispatch(autoFillInput(true))}>Auto fill</div>  auto fill for solving  */}
+            {/* <div style={{ color: easyColor }} onClick={ () => makeItSuperEasy() }>SuperEasy</div>  remove */}
             <Stopwatch />
         </div>
-        <div className='diffButtonsContainer'>
-            { diffButtons 
-                        ? modeButtons.map((button, i) => {
+        { diffButtons 
+            ?   <div className='diffButtonsContainer'>
+                        {modeButtons.map((button, i) => {
                             return (
-                                <div style={{ margin: '1rem'}} key={ `${button.text}`}>
                                     <button 
+                                        key={ `${button.text}`}
                                         onClick={ () => beginTimer(button.number) } 
                                         className='diffButtons'
                                     >
                                         { button.text }
                                     </button>
-                                </div>
                             )
-                        })
-                        : null
-            }
-        </div>                
+                        })}
+                </div>
+            : null 
+        }
     </div>
   )
 }

@@ -46,7 +46,7 @@ export default function GameDisplay() {
   };
 
   return (
-    <div>
+    <div style={{ border: '3px solid red' }}>
       { isGameWon ? bigMessage() : null }
         <TopMenuField />
         <BottomMenuField />

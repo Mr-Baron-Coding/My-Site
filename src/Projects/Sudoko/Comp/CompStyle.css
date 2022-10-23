@@ -1,35 +1,3 @@
-@media screen and ( min-width: 550px ) {
-    .diffButtonsContainer { 
-        display: flex;
-        width: 30.3rem;
-        margin: auto;
-        justify-content: center;
-        justify-items: stretch;
-    }
-    .diffButtons {
-        width: 5rem;
-        height: 2rem;
-        font-family: 'Mikes_Font';
-        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
-        font-size: large;
-        font-weight: bold;
-        background: none;
-        border: none;
-    
-    }
-    .topRowButtonsStyle {
-        font-family: 'Mikes_Font';
-        font-weight: bold;
-        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
-        display: flex;
-        width: 30.3rem;
-        margin: auto;
-        justify-content: center;
-        justify-items: stretch;
-    }
-    .topRowButtonsStyle div { margin: 1rem; }
-}
-
 @media screen and ( max-width: 450px ) {
     .topRowButtonsStyle {
         font-family: 'Mikes_Font';
@@ -59,20 +27,66 @@
     }
 }
 
-.diffButtons {
-    font-family: 'Mikes_Font';
-    src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
-}
+/* large screens */
+@media only screen and ( min-width: 1001px ) {
+    @font-face {
+        font-family: 'Mikes_Font';
+        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
+      
+    }
+    .buttonContainer {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 5rem;
+        gap: 5px;
+        font-weight: bolder;
+        transition: all 2s linear;
 
-.diffButtons:hover {
-    color: grey;
+    }
+    .topRowButtonsStyle { 
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 75%;
+        gap: 5%;
+    }
+    .topRowButtonsStyle>div {
+        width: 7rem;
+        height: 2rem;
+    }
+    .diffButtonsContainer { 
+        background-image: linear-gradient(to right, grey, black, grey, grey, black, grey);
+        border-radius: 5rem;
+        border: 3px solid white;
+        width: 40%;
+        height: 75%;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 0;
+        gap: 5%;
+    }
+    .diffButtons {
+        /* font-family: 'Mikes_Font';
+        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype'); */
+        font-weight: bold;
+        /* color: white; */
+        border: 2px solid linear-gradient(to right, black, red);
+        width: 7rem;
+        height: 2rem;
+    
+    }
+    .diffButtons:hover {
+        color: grey;
+    }
+    .diffButtons:active {
+        color: rgb(71, 71, 71);
+    }
 }
-.diffButtons:active {
-    color: rgb(71, 71, 71);
-}
-
-@font-face {
-    font-family: 'Mikes_Font';
-    src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype');
-  
-  }

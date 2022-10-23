@@ -27,7 +27,7 @@ export default function ProjectsScreen() {
         { linkList.map((l) => {
           return (
             <Link 
-            className='linky'
+              className='linky'
               to={ l.to } 
               key={ `Link_${ l.id }` }
             >
@@ -43,7 +43,10 @@ export default function ProjectsScreen() {
 
   return (
     <div className='projectDisplayContainer'>
-      { !mobile ? <div className='headerStyle'><Header /></div> : null }   
+      { !mobile 
+        ? <div className='headerStyle'><Header /></div> 
+        : null 
+      }   
       <div className='projectDisplayWindow'>
         <Outlet />
       </div>

@@ -44,7 +44,7 @@ export default function BottomMenuField() {
     // solve game not refreshing on same difficulty button press 
     // messages and buttons for selecting and stoping stopwatch
   return (
-    <div style={{ margin: 'auto', width: '50%' }}>
+    <div style={{ margin: 'auto', width: '50%', border: '1px solid black' }}>
         { !userMess ? <div style={{ margin: 'auto', alignContent:'center', width: '50%' }} onClick={ () => checkUserInput() }>Submit</div> : userMessage()}
         {/* { userMess ? userMessage() : null} */}
     </div>
