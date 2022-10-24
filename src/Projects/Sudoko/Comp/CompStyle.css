@@ -35,58 +35,100 @@
       
     }
     .buttonContainer {
+        height: 100%;
         display: flex;
-        position: relative;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 5rem;
-        gap: 5px;
-        font-weight: bolder;
+        align-items: flex-end;
         transition: all 2s linear;
 
     }
     .topRowButtonsStyle { 
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        width: 50%;
-        height: 75%;
-        gap: 5%;
-    }
-    .topRowButtonsStyle>div {
-        width: 7rem;
-        height: 2rem;
+        gap: 10%;
+        
     }
     .diffButtonsContainer { 
-        background-image: linear-gradient(to right, grey, black, grey, grey, black, grey);
-        border-radius: 5rem;
-        border: 3px solid white;
-        width: 40%;
-        height: 75%;
-        position: absolute;
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
-        z-index: 0;
-        gap: 5%;
-    }
-    .diffButtons {
-        /* font-family: 'Mikes_Font';
-        src:url('../../../assets/Lato/Lato-Bold.ttf') format('truetype'); */
-        font-weight: bold;
-        /* color: white; */
-        border: 2px solid linear-gradient(to right, black, red);
-        width: 7rem;
-        height: 2rem;
-    
+        align-items: flex-end;
+        gap: 10%;
+
     }
     .diffButtons:hover {
         color: grey;
     }
     .diffButtons:active {
         color: rgb(71, 71, 71);
+    }
+    /* this is the 'are you sure' pop up messages styling */
+    .startANewContainer {  
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template: 
+        'sentence sentence sentence sentence sentence sentence'
+        '... ... button1 button2 ... ... ';
+        align-content: center;
+    }
+    .questionStyle {        
+        grid-area: sentence;
+    }
+    .blinkStyle {
+        font-size: 1.2rem;
+        padding-left: 1%;
+        animation-name: blink;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1; }
+    }
+    .clickDivOne {
+        border: 3px solid black;
+        border-radius: 8px;
+
+        grid-area: button1;
+        
+    }
+    .clickDivOne:hover {
+        color: red;
+    }
+    .clickDivTwo { 
+        border: 3px solid black;
+        border-radius: 5px;
+
+        grid-area: button2;
+
+    }
+    .clickDivTwo:hover { 
+        color: red;
+
+    }
+
+    /* stopwatch styling */
+    .numbers {
+        border: 3px solid black;
+
+        width: 100%;
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+    }
+    /* submit button style */
+    .submitButton {
+        border: 3px solid black;
+
+        width: 100%;
+    
     }
 }

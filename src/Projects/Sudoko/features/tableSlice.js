@@ -11,6 +11,7 @@ export const tableSlice = createSlice({
         checkGame: false,
         fill: false,
         easyMode: false,
+        isGameEnd: false,
         isGameWon: false,
         userList: []
     },
@@ -34,6 +35,9 @@ export const tableSlice = createSlice({
         superEasy: (state, action) => {
             state.easyMode = action.payload;                // for the lazy
         },
+        isGameEnd: (state, action) => {
+            state.isGameEnd = action.payload;               // check is table filled
+        },
         gameWon: (state, action) => {
             state.isGameWon = action.payload;               // has the user won
         },
@@ -46,6 +50,6 @@ export const tableSlice = createSlice({
     }
 });
 
-export const { showTable, gameDifficulty, tempDiff, checkGame, autoFillInput, superEasy, gameWon, addUser } = tableSlice.actions;
+export const { showTable, gameDifficulty, tempDiff, checkGame, autoFillInput, superEasy, isGameEnd, gameWon, addUser } = tableSlice.actions;
 
 export default tableSlice.reducer;

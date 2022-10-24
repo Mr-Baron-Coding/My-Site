@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logTime } from '../features/stopwatchSlice.js';
+import './CompStyle.css';
 
 export default function Stopwatch() {
   const dispatch = useDispatch();
@@ -27,13 +28,14 @@ export default function Stopwatch() {
     return () => {
       clearInterval(interval);
     }
-    // eslint-disable-next-line
   }, [isTimeRunning, dispatch]);
     
   return (
     <div className="numbers">
-      <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>   {/* minutes */}
-      <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>    {/* seconds */}
+      <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}</span>   {/* minutes */}
+      <span>:</span>
+      <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>    {/* seconds */}
+      <span>:</span>
       <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>                {/* milliseconds */}
     </div>
   )

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 import TopMenuField from './Comp/TopMenuField.js'
-import BottomMenuField from './Comp/BottomMenuField.js';
 import GameCalc from './Comp/GameCalc.js';
-import './Style.css';
-import { gameWon, addUser } from './features/tableSlice.js';
+import Stopwatch from './Comp/Stopwatch.js';
 
+import './Style.css';
+
+import { gameWon, addUser } from './features/tableSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
+import SubmitButton from './Comp/SubmitButton.js';
+import BottomMenuField from './Comp/BottomMenuField.js';
 
 export default function GameDisplay() {
   const dispatch = useDispatch();
@@ -46,11 +49,13 @@ export default function GameDisplay() {
   };
 
   return (
-    <div style={{ border: '3px solid red' }}>
-      { isGameWon ? bigMessage() : null }
-        <TopMenuField />
-        <BottomMenuField />
-        <GameCalc />
+    <div className='sudokoCompStyle'>
+      {/* { isGameWon ? bigMessage() : null } */}
+      <div className='startStyle'><TopMenuField /></div>
+      <div className='timerStyle'><Stopwatch /></div>
+      <div className='submitStyle'><SubmitButton /></div>
+      <div className='bottomStyle'><BottomMenuField /></div> 
+      <div className='gameContainer'><GameCalc /></div>
     </div>
   )
 };

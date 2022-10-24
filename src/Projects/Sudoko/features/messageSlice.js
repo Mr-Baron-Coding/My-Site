@@ -14,13 +14,13 @@ export const messageSlice = createSlice({
     
     reducers: {
         dispalyBottomMessage: (state, action) => {
-            state.valueBottom = action.payload;              // display sure message         
+            state.valueBottom = action.payload;              // display "are you sure" message         
         },
         disableModeButtons: (state, action) => {
-            state.modeButtons = action.payload;
+            state.modeButtons = action.payload;              
         },
         displayModeButtons: (state, action) => {
-            state.diffButtons = action.payload;
+            state.diffButtons = action.payload;             // display the difficulty buttons
         }
     }
 });

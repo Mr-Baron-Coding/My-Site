@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { checkGame, autoFillInput, superEasy, gameWon } from '../features/tableSlice.js';
+import { checkGame, autoFillInput, superEasy, isGameEnd, gameWon } from '../features/tableSlice.js';
 import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
 
 
@@ -17,7 +17,6 @@ export default function GameCalc() {
     const [gameTable, setGameTable] = useState([]);             // game table to be filled
     const [userInput, setUserInput] = useState([]);             // users input log
     const [showArr,setShowArr]  = useState([]);                 // array of display
-    // const [runTime, setRunTime] = useState(false);
 
     let checkNumbers = [1,2,3,4,5,6,7,8,9];                     // global var for row check
     let temp_table = [[],[],[],[],[],[],[],[],[]];              // global var for table check
@@ -36,13 +35,19 @@ export default function GameCalc() {
     
     }, [numberToShow]);
 
-    // check users input 
+    // check user input key press
     useEffect(() => {
-        if ( checkUserInput === true ) {
+        checkEveryInput();
+    
+    }, [userInput])
+    
+    // check users input on submit press
+    useEffect(() => {
+        if ( checkUserInput ) {
             dispatch(startWatch(false));
             dispatch(resetWatch());
             inputVSGame();
-            // dispatch(checkGame(false));
+            dispatch(checkGame(false));
         }
         if ( isEasyMode && !checkUserInput ) {
             checkEveryInput();
@@ -52,8 +57,9 @@ export default function GameCalc() {
 
     // auto fill the input
     useEffect(() => {
-        if ( autoInput === true ) {
+        if ( autoInput ) {
             autoFill();
+            dispatch(isGameEnd(true));
             dispatch(autoFillInput(false));
         }
     }, [autoInput]);
@@ -66,7 +72,7 @@ export default function GameCalc() {
                 local[rowI][cellI] = 1;
             }
             else {
-                local[rowI][cellI] = gameTable[rowI][cellI]
+                local[rowI][cellI] = gameTable[rowI][cellI];
             }
         }))
         setUserInput(local);
@@ -74,11 +80,27 @@ export default function GameCalc() {
 
     const checkEveryInput = () => {
         // here need to get user input and cell number 
-        dispatch(superEasy(false));
-        console.log('Still LOL');
-    }
+        if ( isEasyMode ) {
+            dispatch(superEasy(false));
+            console.log('Still LOL');
+            
+        }
+        else { 
+            let counter = 0;
+            userInput.map((row,rowI) => {row.map((cell, cellI) => {
+            if ( userInput[rowI][cellI] === 0 ) {
+                return (
+                    counter++
+                )
+            }
+            // this runs duispatch alot of times.... fix
+            counter === 0 ? dispatch(isGameEnd(true)) : dispatch(isGameEnd(false));
+        })});
+        }
+        
+    };
 
-    //check user imput 
+    //  check user input 
     const inputVSGame = () => {
         let counter = 0;
         gameTable.map((row,rowI) => {row.map((cell, cellI) => {
@@ -88,9 +110,10 @@ export default function GameCalc() {
                 )
             }
 
-        })})
-        counter === 81 ? dispatch(gameWon(true)) : console.log('Not yet');;
-    }
+        })});
+        console.log(counter);
+        counter === 81 ? console.log('game won') : console.log('Not yet');;
+    };
     
     // create full game table
     const cleanTable = () => {
@@ -183,7 +206,7 @@ export default function GameCalc() {
                 boxArr[2].push(cell);
             }
         }
-    }
+    };
 
     // start of insertion into game table 
     const insertChecker = (row, col, cell, table) => {                          
@@ -399,7 +422,6 @@ export default function GameCalc() {
         let i = parseInt(e.target.className.slice(0, 1));
         let j = parseInt(e.target.className.slice(1, 2));
         if (keyInput === 'Delete' || keyInput === 'Backspace') {
-            console.log(keyInput);
             uInput[i][j] = 0;
             setUserInput(uInput => [...uInput]);
         }
@@ -443,8 +465,6 @@ const createEmptyTable = () => {
 };
 
   return (
-    <div>
-        { fullTableShow ? tableBase() : emptyTable() }
-    </div>
+        fullTableShow ? tableBase() : emptyTable() 
   )
 }

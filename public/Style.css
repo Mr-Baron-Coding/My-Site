@@ -13,3 +13,18 @@ html, body, #root {
     user-select: none;
     
 }
+@media only screen and ( min-width: 1001px ) {
+    #root, html, body { 
+      background-image: url('./images/free-wallpapers-site-14.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      color: black;
+      font-family: 'Mikes_Font';
+        font-weight: bold;
+        font-size: large;
+        user-select: none;  
+      /* font-size: calc(10px + (26 - 10) * ((100vw - 768px) / (1600 - 768)));  */
+  
+    }
+  }

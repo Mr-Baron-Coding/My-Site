@@ -89,10 +89,40 @@
 
 /* large screens */
 @media only screen and ( min-width: 1001px ) {
-    .displauWindowStyle {
-        border: 3px solid blue;
-        font-family: 'Mikes_Font';
-        font-weight: bold;
-        src:url('../../assets/Lato/Lato-Bold.ttf') format('truetype');
+    .sudokoCompStyle {
+        height: 90%;
+        display: grid;
+        grid-template: 
+        'mainButt mainButt mainButt timer'
+        'mess mess mess submit'
+        'display display display display';
+        grid-template-columns: auto auto auto 15%;
+        grid-template-rows: 10% 10% auto;
+
+    }
+    .gameContainer {
+        grid-area: display;
+        border: 5px solid green;
+
+    }
+    .startStyle {
+        grid-area: mainButt;
+    
+    }
+    .bottomStyle {
+        grid-area: mess;
+        border: 1px solid red;
+
+    }
+    .timerStyle { 
+        grid-area: timer;
+        border: 1px solid red;
+        justify-content: center;
+
+    }
+    .submitStyle { 
+        grid-area: submit;
+        border: 1px solid red;
+
     }
 }

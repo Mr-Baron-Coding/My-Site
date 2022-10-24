@@ -79,6 +79,14 @@
 @media only screen and ( min-width: 1000px ) {
     .projectDisplayContainer {
         --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+        /* background-image: url('../images/free-wallpapers-site-14.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        color: black; */
+
+        border: 5px solid black;
 
         margin: auto;
         padding-top: 3rem;

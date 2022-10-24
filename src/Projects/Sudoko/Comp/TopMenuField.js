@@ -4,21 +4,24 @@ import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
 import { dispalyBottomMessage, displayModeButtons } from '../features/messageSlice.js';
 import { checkGame, showTable, gameDifficulty, tempDiff, autoFillInput, superEasy, gameWon } from '../features/tableSlice.js';
 
-import Stopwatch from './Stopwatch';
+import BottomMenuField from './BottomMenuField.js';
 import './CompStyle.css';
+// import { color, style } from '@mui/system';
 
 export default function TopMenuField() {
     const dispatch = useDispatch();
-    // const userMess = useSelector((state) => state.messages.valueBottom);            // display message ?
-    const diffButtons = useSelector((state) => state.messages.diffButtons);         // display buttons
-    const isTimeRunning = useSelector((state) => state.stopwatch.running);          // is stopwatch running
-    const isGameChecked = useSelector((state) => state.table.checkGame);            // are we checking the game after submit?
+    const userMess = useSelector((state) => state.messages.valueBottom);                // display message ?
+    const diffButtons = useSelector((state) => state.messages.diffButtons);             // display buttons
+    const isTimeRunning = useSelector((state) => state.stopwatch.running);              // is stopwatch running
+    const isGameChecked = useSelector((state) => state.table.checkGame);                // are we checking the game after submit?
     const isEasyMode = useSelector((state) => state.table.easyMode);
+    const isGameOver = useSelector((state) => state.table.isGameEnd);
 
     const topMenuButtons = [
-        { text: 'Start Game', id : 1, click: 'openDiffMenu()' },
-        { text: 'Auto fill', id : 2, click: 'openDiffMenu()' },
-        { text: 'SuperEasy', id : 3, click: 'makeItSuperEasy()' }
+        { text: 'Start Game', id : 1 },
+        { text: 'Auto fill', id : 2 },
+        // { text: 'SuperEasy', id : 3 }, 
+        // { text: 'Submit', id : 4 }, 
     ];
 
     const modeButtons = [
@@ -29,13 +32,21 @@ export default function TopMenuField() {
 
     let easyColor = isEasyMode ? 'pink' : 'black';
 
-    const openDiffMenu = () => {
-        dispatch(displayModeButtons(true));
-
+    // handling different functions
+    const mainFunction = (index) => {
+        if ( index === 0 ) {
+            dispatch(displayModeButtons(true));
+        }
+        else if ( index === 1 ) {
+            dispatch(autoFillInput(true))
+        }
+        else {
+            dispatch(superEasy(!isEasyMode));
+        }
     };
 
     const beginTimer = (diff) => {
-        if ( isTimeRunning === true ) {
+        if ( isTimeRunning ) {
             dispatch(startWatch(false));
             dispatch(dispalyBottomMessage(true));
             dispatch(displayModeButtons(false));
@@ -47,7 +58,6 @@ export default function TopMenuField() {
                 dispatch(resetWatch());
 
             }
-
             dispatch(gameDifficulty(diff));             // start the game - add difficulty setting
             dispatch(startWatch(true));
             dispatch(showTable(true));
@@ -58,48 +68,36 @@ export default function TopMenuField() {
         
     };
 
-    const makeItSuperEasy = () => {
-        dispatch(superEasy(!isEasyMode));
-        console.log('LOL');
-    };
-
-    // const disableButtons = () => {
-    //     dispatch(disableModeButtons(true));
-    //     console.log(isDisabled);
-    //     setModeButtons([
-    //         ...modeButtons,
-    //         modeButtons.map((button) => button.disabled = !button.disabled )
-    //     ])
-    // };
-
   return (
     <div className='buttonContainer'>
-        <div className='topRowButtonsStyle'>
-            { topMenuButtons.map((button,i) => {
-                return (
-                    <div onClick={ '()=>' + button.click }>{ button.text }</div>
-                )
-            })}
-            {/* <div onClick={ () => openMenu() }>New Game</div> */}
-            {/* <div onClick={ () => dispatch(autoFillInput(true))}>Auto fill</div>  auto fill for solving  */}
-            {/* <div style={{ color: easyColor }} onClick={ () => makeItSuperEasy() }>SuperEasy</div>  remove */}
-            <Stopwatch />
-        </div>
-        { diffButtons 
+        { userMess ? null : 
+            diffButtons 
             ?   <div className='diffButtonsContainer'>
                         {modeButtons.map((button, i) => {
                             return (
-                                    <button 
+                                    <div 
                                         key={ `${button.text}`}
                                         onClick={ () => beginTimer(button.number) } 
                                         className='diffButtons'
                                     >
                                         { button.text }
-                                    </button>
+                                    </div>
                             )
                         })}
                 </div>
-            : null 
+            : <div className='topRowButtonsStyle'>
+                { topMenuButtons.map((button,i) => {
+                    return (
+                        <div 
+                            key={ i } 
+                            onClick={ () => mainFunction(i) } 
+                            style={{ color: i===2 ? easyColor : null}}
+                        >
+                            { button.text }
+                        </div>
+                    )
+                })}
+            </div> 
         }
     </div>
   )
