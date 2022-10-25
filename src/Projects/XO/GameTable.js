@@ -9,9 +9,7 @@ export default function GameTable() {
         [ '','','' ]
     ]);
     const [isX, setIsX] = useState(true);                   // who's turn is it? 
-    const [isMessage, setIsMessage] = useState(false);      // display winner or new game button
-
-   
+    const [isMessage, setIsMessage] = useState(false);      // display winner or new game button 
 
     // check for win/ end on every input
     useEffect(() => {
@@ -37,24 +35,26 @@ export default function GameTable() {
                         <div className='columns' key={`row_${rowI}`}>
                             { row.map((cell, cellI) => {
                                 return (
-                                    <div key={ `cellI_${rowI}${cellI}` } className={ `col_${rowI+1} row_${cellI+1} cellContainer` }>
+                                    <div 
+                                        key={ `cellI_${rowI}${cellI}` } 
+                                        className={ `col_${rowI+1} row_${cellI+1} cellContainer` }
+                                    >
                                         <div 
                                             className='cells'
-                                            // style={{ border: '1px solid red', width: '100%', height: '100%' }} 
                                             onClick={ () => inputThis(rowI, cellI) }
                                         >
                                             { cell === '' ? '' : cell }
-                                            {/* { `col_${rowI+1} row_${cellI+1}` } */}
                                         </div>
+                                        { cell === '' ?
+                                        <div 
+                                            className={`hover_${rowI+1}${cellI+1}`} 
+                                        >
+                                            { isX ? 'X' : 'O' }
+                                            {/* add styling to everything */}
+                                        </div>
+                                        : null
+                                        }
                                         
-                                        {/* <input 
-                                            className='xoInputStyle'
-                                            key={ `input_${rowI}${cellI}` } 
-                                            value={ cell === '' ? '' : cell }
-                                            // style ={{border: '1px solid black'}} 
-                                            onClick={ () => inputThis(rowI, cellI) }
-                                            readOnly
-                                        /> */}
                                     </div>
                                 )
                             })}
