@@ -31,27 +31,37 @@ export default function GameTable() {
     // print game table
     const rowOrBox = () => {
         return (
-            <tbody>
+            <>
                 { gameTable.map((row,rowI) => {
                     return (
-                        <tr key={`row_${rowI}`}>
+                        <div className='columns' key={`row_${rowI}`}>
                             { row.map((cell, cellI) => {
                                 return (
-                                    <td key={ `cellI_${rowI}${cellI}` } className={ `cellI_${rowI}${cellI}` }>
-                                        <input 
+                                    <div key={ `cellI_${rowI}${cellI}` } className={ `col_${rowI+1} row_${cellI+1} cellContainer` }>
+                                        <div 
+                                            className='cells'
+                                            // style={{ border: '1px solid red', width: '100%', height: '100%' }} 
+                                            onClick={ () => inputThis(rowI, cellI) }
+                                        >
+                                            { cell === '' ? '' : cell }
+                                            {/* { `col_${rowI+1} row_${cellI+1}` } */}
+                                        </div>
+                                        
+                                        {/* <input 
+                                            className='xoInputStyle'
                                             key={ `input_${rowI}${cellI}` } 
                                             value={ cell === '' ? '' : cell }
-                                            style ={{border: '1px solid black'}} 
+                                            // style ={{border: '1px solid black'}} 
                                             onClick={ () => inputThis(rowI, cellI) }
                                             readOnly
-                                        />
-                                    </td>
+                                        /> */}
+                                    </div>
                                 )
                             })}
-                        </tr>
+                        </div>
                     )
                 })}
-            </tbody>
+            </>
         )
                 
     };
@@ -170,7 +180,6 @@ export default function GameTable() {
         return (
             <div 
                 className='newGameButton'
-                // style={{ width: '100%', border: 'none', background: 'none' }} 
                 onClick={ () => clearGame() }
             >
                 New Game
@@ -178,7 +187,7 @@ export default function GameTable() {
         )
     };
     const displayMess = () => {
-            return !isX ? 'X Won' : 'O Won';
+            return !isX ? 'X Won!' : 'O Won!';
         
     };
     
@@ -188,17 +197,12 @@ export default function GameTable() {
             <div>Score: </div>
             <div>X: { scores.X }</div>
             <div>O: { scores.O }</div>    
-            <div onClick={ () => setScores({ X: 0, O: 0 })}>Reset</div>    
         </div>
-        <div className='gameContainer'>
-            <table>
-                    { rowOrBox() }
-            </table>
-        </div>
-        
         <div className='bottomDiv'>
-            { isMessage ? displayMess() : displayButton() } 
+            { isMessage ? displayMess() : displayButton() }
+            <div onClick={ () => setScores({ X: 0, O: 0 })}>Reset Score</div>
         </div>
+        <div className='gameFaceContainer'>{ rowOrBox() }</div>
     </div>
   )
 }

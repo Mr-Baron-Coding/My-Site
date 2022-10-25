@@ -1,14 +1,14 @@
-.tikTackToe {
+/* .tikTackToe {
     align-items: center;
     width: 20rem;
     margin: auto;
     text-align: center;
     display: block;
     
-}
-@media screen and ( min-width: 550px ) {
+} */
+/* @media screen and ( min-width: 550px ) {
     table { box-shadow: 2px 2px 2px 2px #888888; }
-}
+} */
 @media screen and ( max-width: 450px ) {
     .tikTackToe { margin-top: 10%; }
     .gameContainer { margin-top: 2rem; }
@@ -26,51 +26,84 @@
 /* larger screens */
 @media screen and ( min-width: 1001px ) {
     .mainDiv {
-        border: 3px solid gold;
         height: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .tikTackToe {
-        border: 3px solid red;
         display: grid;
         height: 500px;
         width: 500px;
-        grid-template: 1fr 1fr 1fr / 1fr;
+        grid-template: 1fr 1fr 6fr / 1fr;
     }
     .scoreStyle {
-        border: 1px solid black;
-        /* grid-area: score; */
-        /* display: grid; */
-        /* grid-template-columns: repeat(4, 1fr); */
-    }
-    .gameContainer {
-        border: 1px solid blue;
-        /* grid-area: game; */
-        /* display: grid; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
     .bottomDiv {
-        border: 1px solid green;
-        /* grid-area: down; */
-        /* display: grid; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
+
+    /* game borad styling */
+    .gameFaceContainer {
+        background-color: rgba(19, 19, 19, 0.274);
+        border-radius: 10px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: 100%;
+    }
+    .cellContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cells {
+        background-color: rgba(61, 61, 61, 0.096);
+        border-radius: 10px;
+        height: 80%;
+        width: 80%;
+        
+    }
+    div[class*='col_1'], div[class*='col_2'] {
+        border-right: 1px solid black;
+    }
+    div[class*='col_2'], div[class*='col_3'] {
+        border-left: 1px solid black;
+    }
+    div[class*='row_1'], div[class*='row_2'] {
+        border-bottom: 1px solid black;
+    }
+    div[class*='row_2'], div[class*='row_3'] {
+        border-top: 1px solid black;
+    }
+    .columns { 
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+    }
+    
 }
 
-.mainDiv {
+/* .mainDiv {
     align-items: center;
     display: block; 
-}
+} */
 
-.scoreStyle {
+/* .scoreStyle {
     margin: auto;
     display: flex;
     flex-direction: row;
     width: 100%;
-}
-.scoreStyle div {
+} */
+/* .scoreStyle div {
     flex: 1;
-}
+} */
 
-table {
-    /* box-shadow: 2px 2px 2px 2px #888888; */
+/* table {
+    box-shadow: 2px 2px 2px 2px #888888;
     height: 250px;
     width: 250px;
     margin: auto;
@@ -86,4 +119,4 @@ input {
     border: none;
     outline: none;
 
-}
+} */
