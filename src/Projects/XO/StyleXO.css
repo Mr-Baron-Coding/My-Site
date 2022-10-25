@@ -23,6 +23,37 @@
     .newGameButton:active { border: none; padding: 6px; }
 }
 
+/* larger screens */
+@media screen and ( min-width: 1001px ) {
+    .mainDiv {
+        border: 3px solid gold;
+        height: 90%;
+    }
+    .tikTackToe {
+        border: 3px solid red;
+        display: grid;
+        height: 500px;
+        width: 500px;
+        grid-template: 1fr 1fr 1fr / 1fr;
+    }
+    .scoreStyle {
+        border: 1px solid black;
+        /* grid-area: score; */
+        /* display: grid; */
+        /* grid-template-columns: repeat(4, 1fr); */
+    }
+    .gameContainer {
+        border: 1px solid blue;
+        /* grid-area: game; */
+        /* display: grid; */
+    }
+    .bottomDiv {
+        border: 1px solid green;
+        /* grid-area: down; */
+        /* display: grid; */
+    }
+}
+
 .mainDiv {
     align-items: center;
     display: block; 

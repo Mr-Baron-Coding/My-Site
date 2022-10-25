@@ -29,8 +29,8 @@
 }
 
 @media screen  and ( min-width: 550px ) {
-    .emptyTableStyle { width: 30rem; height: 30rem; border: 1px solid black; border-collapse: collapse; }
-    tr td { border: 1px solid black; }
+    /* .emptyTableStyle { width: 30rem; height: 30rem; border: 1px solid black; border-collapse: collapse; } */
+    /* tr td { border: 1px solid black; }
     table {
         height: 20rem;
         width: 20rem;
@@ -65,7 +65,7 @@
     input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    }
+    } */
 
     .container {
         position: fixed; /* Sit on top of the page content */
@@ -93,16 +93,18 @@
         height: 90%;
         display: grid;
         grid-template: 
-        'mainButt mainButt mainButt timer'
-        'mess mess mess submit'
-        'display display display display';
-        grid-template-columns: auto auto auto 15%;
-        grid-template-rows: 10% 10% auto;
+        'mess mess timer'
+        'mainButt mainButt submit '
+        'display  display submit';
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-rows: 1fr 1fr 8fr;
 
     }
     .gameContainer {
         grid-area: display;
-        border: 5px solid green;
+        display: flex;
+        justify-content: center;
+        position: relative;
 
     }
     .startStyle {
@@ -111,18 +113,41 @@
     }
     .bottomStyle {
         grid-area: mess;
-        border: 1px solid red;
 
     }
     .timerStyle { 
         grid-area: timer;
-        border: 1px solid red;
-        justify-content: center;
 
     }
     .submitStyle { 
         grid-area: submit;
-        border: 1px solid red;
 
     }
+    .overflowStyle {
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        z-index: 0;
+        height: 500px;
+        width: 500px;
+    }
+    .overflowStyle>div {
+        width: 100%;
+        height: 100%;
+    }
+    div[class*='row3'], div[class*='row2'] {
+        border-top: 2px solid black;
+    }
+    div[class*='row1'], div[class*='row2'] {
+        border-bottom: 2px solid black;
+    }
+    div[class*='col1'], div[class*='col2'] {
+        border-right: 2px solid black;
+    }
+    div[class*='col2'], div[class*='col3'] {
+        border-left: 2px solid black;
+    }
 }
+    
+

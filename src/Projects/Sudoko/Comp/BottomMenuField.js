@@ -2,14 +2,14 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { dispalyBottomMessage } from '../features/messageSlice.js';
 import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
-import { gameDifficulty, checkGame, isGameEnd } from '../features/tableSlice.js';
+import { gameDifficulty, isGameEnd } from '../features/tableSlice.js';
 
 import './CompStyle.css';
 
 export default function BottomMenuField() {
     const dispatch = useDispatch();
-    const userMess = useSelector((state) => state.messages.valueBottom);
     const tempDiff = useSelector((state) => state.table.temp_Diff);
+    const userMess = useSelector((state) => state.messages.valueBottom);
     
     const startNewGame = () => {
         dispatch(isGameEnd(false));

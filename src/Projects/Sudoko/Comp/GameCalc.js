@@ -4,7 +4,8 @@ import { checkGame, autoFillInput, superEasy, isGameEnd, gameWon } from '../feat
 import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
 
 
-import '../Style.css';
+import './CompStyle.css';
+import TableLineStyling from './TableLineStyling.js';
 
 export default function GameCalc() {
     const dispatch = useDispatch();
@@ -358,16 +359,15 @@ export default function GameCalc() {
     // print a full table on screen
     const tableBase = () => {
         return (
-            <table className='gameTableStyle'>
-                <tbody>
+            <div className='gameTableStyle'>
                     { gameTable.map((row,i) => {
                         return (
-                            <tr key={ `tr_${row + i}` } >
+                            <div className={`rows row_${ i+1 }`} key={ `tr_${row + i}` } >
                                 { row.map((element,z) => {
                                     return (
-                                        <td key={ `td_${row  + z}` } className={ `tr_${i}${z}` }>    
+                                        <div key={ `td_${row  + z}` } className={ `cells cell_${i}${z} ` }>    
                                                 { (showArr.filter((xxx) => xxx === `${i}${z}`) == `${i}${z}`)
-                                                ?  element  
+                                                ?  <div className='elementDiv'>{ element }</div>  
                                                 : <input    
                                                         className={ `${i}${z}` }  
                                                         value={ parseInt(userInput[i][z]) === 0 ? '' : parseInt(userInput[i][z]) } 
@@ -377,15 +377,13 @@ export default function GameCalc() {
                                                         style={{ color: easyColorSelector(i, z) }}
                                                     /> 
                                                 }            
-                                        </td>
+                                        </div>
                                     )
                                 })}
-                            </tr>
+                            </div>
                         )
                     })}
-                                        
-                </tbody>
-            </table> 
+            </div> 
         )
     };
 
@@ -431,24 +429,22 @@ export default function GameCalc() {
     const emptyTable = () => {
         createEmptyTable();
     return (
-        <table className='emptyTableStyle'>
-            <tbody>
+        <div className='emptyTableStyle'>
                 { temp_table.map((ele,i) =>{
                     return (
-                        <tr key={ `tr_${i}` } >             {/* if row 3 && 6 add top line  */}
+                        <div className={`rows row_${ i+1 }`} key={ `tr_${i}` } >             {/* if row 3 && 6 add top line  */}
                             { ele.map((el, ie) => {
                                 return (
-                                    <td key={ `td_${ie}`}> {/* if col 3 && 6 add right line  */}
+                                    <div className={`cells cell_${i+1}${ie+1}`} key={ `td_${ie}`}> {/* if col 3 && 6 add right line  */}
                                         {}
-                                    </td>
+                                    </div>
                                 )
                                 
                             })}
-                        </tr>
+                        </div>
                     )
                 })}
-            </tbody>
-        </table>
+        </div>
     )
 };
 
@@ -465,6 +461,6 @@ const createEmptyTable = () => {
 };
 
   return (
-        fullTableShow ? tableBase() : emptyTable() 
+        fullTableShow ? tableBase() : emptyTable()
   )
 }

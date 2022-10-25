@@ -10,6 +10,7 @@ import { gameWon, addUser } from './features/tableSlice.js';
 import { useSelector, useDispatch } from 'react-redux';
 import SubmitButton from './Comp/SubmitButton.js';
 import BottomMenuField from './Comp/BottomMenuField.js';
+import TableLineStyling from './Comp/TableLineStyling.js';
 
 export default function GameDisplay() {
   const dispatch = useDispatch();
@@ -55,7 +56,9 @@ export default function GameDisplay() {
       <div className='timerStyle'><Stopwatch /></div>
       <div className='submitStyle'><SubmitButton /></div>
       <div className='bottomStyle'><BottomMenuField /></div> 
-      <div className='gameContainer'><GameCalc /></div>
+      <div className='gameContainer'><GameCalc />
+        <div className='overflowStyle'><TableLineStyling /></div>
+      </div>
     </div>
   )
 };
