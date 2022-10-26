@@ -1,13 +1,43 @@
-/* main container */
-@media screen and ( min-width: 550px ) {
+/* large screens */
+@media screen and ( min-width: 1001px ) {
+    /* main container */
     .calc_Container {
-        display: flex;
-        flex-direction: column;
         margin: auto;
         height: 35rem;
         width: 28rem;
+    }
+    /* outpout container */
+    .displayContainer {
+        margin: auto;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    }
+    /* output fields */
+    .outPut {
+        text-align: right;
+        color: black;
+        background: rgba(46, 45, 45, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    
+    }
+    /* top field */
+    .calOutputField {
+        border: none;
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+    /* bottom field */
+    .displayField {
+        border: none;
+        font-weight: bold;
+    }
+    .button_Box:hover {
+        -webkit-transition: 0.2s;
+        transition: 0.1s;
+        background: rgba(255, 255, 255, 0.247);
         border-radius: 16px;
-        border: 1px solid rgba(46, 45, 45, 0.31);
+    
     }
 
 
@@ -19,33 +49,58 @@
 	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4); */
 
 }
-@media screen and ( max-width: 450px ) {
+
+/* cellphone screens */
+@media only screen and ( max-width: 550px ) {
+    /* main container */
     .calc_Container {
         display: flex;
         flex-direction: column;
-        margin: auto;
-        height: 35rem;
-        width: 25rem;
-        border-radius: 16px;
-        border: 1px solid rgba(46, 45, 45, 0.31);
+        height: 80vmax;
+        width: 100%;
+        border: 5px solid rgba(255, 255, 255);
+        color: white;
     }
+    /* outpout container */
+    
+    /* top input field */
+    .calOutputField {
+        font-size: 3.5vmax;
+    }
+    /* bottom display field */
+    .displayField{
+        font-size: 2.5vmax;
+    }
+
+}
+
+/* global */
+/* main container */
+.calc_Container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid rgba(46, 45, 45, 0.31);
+    user-select: none;
 }
 
 /*  input dispaly container */
 .displayContainer {
-    height: 20%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 2;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-
 
 }
 
 /* input styling */
 .outPut {
-    width: 100%;
-	padding: 2%;
+    /* width: 100%; */
+	padding-right: 2%;
+    padding-left: 2%;
 	text-align: right;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
     background: rgba(46, 45, 45, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
@@ -54,24 +109,20 @@
 }
 /* top input field */
 .calOutputField {
-    /* background-color: black; */
     border-radius: 16px 16px 0 0;
-    font-size: 1.5rem;
-    font-weight: bolder;
+    flex: 1;
 
 }
-/* botto, display field */
+/* bottom display field */
 .displayField{
-    /* background-color: black; */
-    border-radius: 0 0 0 0;
-    font-weight: bold;
+    flex: 0.8;
 
 }
 
 /* table container */
 .butt_Container {
+    flex: 6;
     width: 100%;
-    height: 100%;
 
 }
 
@@ -80,7 +131,7 @@
     width: 100%;
     height: 100%;
     background: rgba(46, 45, 45, 0.1);
-    border-radius: 0 0 16px 16px;
+    /* border-radius: 0 0 16px 16px; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(2.5px);
@@ -93,11 +144,4 @@
 .button_Box {
     border: 2px solid rgba(0, 0, 0, 0.02);
     width: 25%;
-}
-.button_Box:hover {
-    -webkit-transition: 0.2s;
-	transition: 0.1s;
-	background: rgba(255, 255, 255, 0.247);
-    border-radius: 16px;
-
 }

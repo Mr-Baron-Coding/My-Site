@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './StyleXO.css';
+import { useSelector } from 'react-redux';
 
 export default function GameTable() {
+    const isMobile = useSelector((state) => state.mobile.isMobile);
     const [scores, setScores] = useState({ X: 0, O: 0 });    
     const [gameTable, setGameTable] = useState([            // game table base
         [ '','','' ],
@@ -25,6 +27,22 @@ export default function GameTable() {
         setIsX(true);
 
     };
+
+    const iconStyle = () => {
+        return (
+            isX ?
+            <div className='xIconStyle'>
+                <div className='lineOne'></div>
+                <div className='lineTwo'></div>
+            </div>
+            : 
+            <div className='oIconStyle'>
+                <div className='sphereOne'></div>
+                <div className='sphereTwo'></div>
+            </div>
+        )
+    
+    };
     
     // print game table
     const rowOrBox = () => {
@@ -37,20 +55,21 @@ export default function GameTable() {
                                 return (
                                     <div 
                                         key={ `cellI_${rowI}${cellI}` } 
-                                        className={ `col_${rowI+1} row_${cellI+1} cellContainer` }
+                                        className={ `xocol_${rowI+1} xorow_${cellI+1} xoCellContainer` }
                                     >
+                                        {/* the players placment */}
                                         <div 
-                                            className='cells'
+                                            className={`cellsXO ${cell}`}
                                             onClick={ () => inputThis(rowI, cellI) }
                                         >
-                                            { cell === '' ? '' : cell }
+                                            { cell === '' ? '' : cell === 'X' ? <div className='xIconStyle'><div className='lineOne'></div><div className='lineTwo'></div></div> : <div className='oIconStyle'><div className='sphereOne'></div><div className='sphereTwo'></div></div> }
                                         </div>
-                                        { cell === '' ?
+                                        {/* hover effect */}
+                                        { cell === '' && !isMobile ?
                                         <div 
-                                            className={`hover_${rowI+1}${cellI+1}`} 
+                                            className={ isX ? `hover_${rowI+1}${cellI+1} display_X` : `hover_${rowI+1}${cellI+1} display_O`}
                                         >
-                                            { isX ? 'X' : 'O' }
-                                            {/* add styling to everything */}
+                                            { iconStyle() }
                                         </div>
                                         : null
                                         }
@@ -193,14 +212,14 @@ export default function GameTable() {
     
   return (
     <div className='tikTackToe'>
+        <div className='bottomDiv'>
+            { isMessage ? displayMess() : displayButton() }
+            <div onClick={ () => setScores({ X: 0, O: 0 })}>Reset Score</div>
+        </div>
         <div className='scoreStyle'>
             <div>Score: </div>
             <div>X: { scores.X }</div>
             <div>O: { scores.O }</div>    
-        </div>
-        <div className='bottomDiv'>
-            { isMessage ? displayMess() : displayButton() }
-            <div onClick={ () => setScores({ X: 0, O: 0 })}>Reset Score</div>
         </div>
         <div className='gameFaceContainer'>{ rowOrBox() }</div>
     </div>

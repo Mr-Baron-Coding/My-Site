@@ -16,29 +16,6 @@ export default function MyWork() {
     { name: 'Calculator', id: 3, pic: CalcPic, alt: "Calculator Pic", path: 'Calculator', className: 'CalcPicStyle', item: 'item_3' }
   ]);
 
-  const carouselDisplay = () => {
-    return (
-      projects.map((pro, i) => {
-        return (
-            <Carousel.Item key={i+1}>
-              <nav>
-                <Link to={`/projects/${ pro.path }`}>
-                  <img
-                    className={ `${ pro.className } + picStyle` }
-                    src={ pro.pic }
-                    alt={ pro.alt }
-                  />
-                    <Carousel.Caption>
-                      <h3 style={{ color: 'black' }}>{ pro.name }</h3>
-                    </Carousel.Caption>
-                </Link>
-              </nav>
-            </Carousel.Item>
-        )
-      })
-    )
-
-  };
   const toggleActive = (index) => {
     let arr = projects.filter((e,i) => i !== index);
     let x = 0;
@@ -70,7 +47,6 @@ export default function MyWork() {
                 <div 
                   key={ i } 
                   className={`${ e.item } carousel_item`} 
-                  // e.item == 'item_1' ? onClick={ () => toggleActive(i) } : onMouseEnter={ () => toggleActive(i) }  
                   onClick={ () => toggleActive(i) }
                 >
                   { e.item === 'item_1' 

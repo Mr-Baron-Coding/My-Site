@@ -241,19 +241,6 @@ export default function CalcScreen() {
                     default:
                         break;
                 }
-                // if ( userInputDisplay.charAt(userInputDisplay.length-1) !== ' ' ) {
-                //     // if ( userInputDisplay.charAt(userInputDisplay.length-1) === '.' ) { setIsDot(false) }; 
-
-                //     // userInputDisplay.length !== 1 ? setUserInputDisplay(userInputDisplay.slice(0, userInputDisplay.length-1)) : setUserInputDisplay('0'), setIsNegative(false);
-                // }
-                // else if ( x === undefined ) {
-                //     setUserInputDisplay(userInputDisplay.slice(0, userInputDisplay.length-3));              // deleting opreator? 
-                //     setIsSimbolPressed(false);
-                // }
-                // else  if ( x !== undefined ) { 
-                //     setUserInputDisplay(userInputDisplay.slice(0, userInputDisplay.length-3) +  ` ${x} ` );              // replacing opreator? 
-                //     setIsDot(false);
-                // }
                 break;
             case del === 'C':
                 setUserInputDisplay('0');

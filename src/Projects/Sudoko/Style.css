@@ -1,70 +1,56 @@
-@media screen and ( max-width: 450px ) {
-    .displauWindowStyle { height: 100%; width: 100%; }
-    .emptyTableStyle { width: 90%; height: 90%; }
-    .emptyTableStyle tbody tr td { border: 1px solid white; width: 2.5rem; height: 2.5rem; }
-    table { width: 100%; height: 100%; text-align: center; border: 1px solid white; }
-    tr td input { width: 2.5rem; height: 2.5rem; }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* cellphone screens */
+@media screen  and ( max-width: 550px ) {
+    /* main container */
+    .sudokoCompStyle {
+        height: 90%;
+        display: flex;
+        flex-direction: column;
     }
-    td[class*='tr_2'], td[class*='tr_5'] {
-        border-bottom: 0.15rem solid rgb(120, 120, 120);
+    /* game face */
+    .gameContainer {
+        flex: 10;
+        position: relative;
     }
-    td[class$='3'], td[class$='6']
-     {
-        border-left: 0.15rem solid rgb(121, 120, 120);
+    .startStyle {
+        flex: 1;
     }
-    input {
-        text-align: center;
-        /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-        font-size: small;
-        opacity: 0.8;
-        border-radius: 5%;
-        border: none;
-        outline: none;
-    
-    } 
-}
-
-@media screen  and ( min-width: 550px ) {
-    /* .emptyTableStyle { width: 30rem; height: 30rem; border: 1px solid black; border-collapse: collapse; } */
-    /* tr td { border: 1px solid black; }
-    table {
-        height: 20rem;
-        width: 20rem;
-        margin: auto;
-        text-align: center;
-    
+    .bottomStyle {
+        flex: 1;
+        /* display: none; */
     }
-    tbody tr td input {
-        width: 3rem;
-        height: 3rem;
-        padding: auto;    
-    
+    .timerStyle {
+        flex: 1;
     }
-    input {
-        text-align: center;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: small;
-        opacity: 0.5;
-        border-radius: 5%;
-        border: none;
-        outline: none;
-    
-    } 
-    .gameTableStyle td[class*='tr_2'], td[class*='tr_5'] {
-        border-bottom: 0.15rem solid rgb(120, 120, 120);
+    .submitStyle {
+        /* display: none; */
+        flex: 1;
     }
-    .gameTableStyle td[class$='3'], td[class$='6']
-     {
-        border-left: 0.15rem solid rgb(121, 120, 120);
+    /* overflow styling */
+    /* .overflowStyle {
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        z-index: 1;
+        height: 10vw;
+        width: 10vw;
+        flex: 10;
     }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    .overflowStyle>div {
+        width: 100%;
+        height: 100%;
+    }
+    div[class*='row3'], div[class*='row2'] {
+        border-top: 2px solid black;
+    }
+    div[class*='row1'], div[class*='row2'] {
+        border-bottom: 2px solid black;
+    }
+    div[class*='col1'], div[class*='col2'] {
+        border-right: 2px solid black;
+    }
+    div[class*='col2'], div[class*='col3'] {
+        border-left: 2px solid black;
     } */
 
     .container {
@@ -89,14 +75,15 @@
 
 /* large screens */
 @media only screen and ( min-width: 1001px ) {
+    /* main container */
     .sudokoCompStyle {
         height: 90%;
         display: grid;
         grid-template: 
-        'mess mess timer'
-        'mainButt mainButt submit '
-        'display  display submit';
-        grid-template-columns: 2fr 2fr 1fr;
+        'timer mess submit'
+        'mainButt mainButt mainButt'
+        'display display  display';
+        grid-template-columns: 1fr 2fr 1fr;
         grid-template-rows: 1fr 1fr 8fr;
 
     }
@@ -115,14 +102,19 @@
         grid-area: mess;
 
     }
-    .timerStyle { 
+    .timerStyle {     
         grid-area: timer;
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
 
     }
     .submitStyle { 
         grid-area: submit;
-
+        display: flex;
+        align-items: flex-end;
     }
+    /* overflow styling */
     .overflowStyle {
         position: absolute;
         display: grid;

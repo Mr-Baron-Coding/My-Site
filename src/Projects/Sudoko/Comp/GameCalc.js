@@ -369,7 +369,7 @@ export default function GameCalc() {
                                                 { (showArr.filter((xxx) => xxx === `${i}${z}`) == `${i}${z}`)
                                                 ?  <div className='elementDiv'>{ element }</div>  
                                                 : <input    
-                                                        className={ `${i}${z}` }  
+                                                        className={ `${i}${z} inputStyle` }  
                                                         value={ parseInt(userInput[i][z]) === 0 ? '' : parseInt(userInput[i][z]) } 
                                                         type= 'text' 
                                                         onChange={ (e) => maxLengthInput(e) }
