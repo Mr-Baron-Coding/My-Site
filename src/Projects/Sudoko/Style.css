@@ -5,6 +5,8 @@
         height: 90%;
         display: flex;
         flex-direction: column;
+        border: 3px solid gold;
+        
     }
     /* game face */
     .gameContainer {
@@ -23,6 +25,9 @@
     }
     .submitStyle {
         /* display: none; */
+        flex: 1;
+    }
+    .keyboardStyle {
         flex: 1;
     }
     /* overflow styling */

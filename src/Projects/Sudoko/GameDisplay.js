@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import TopMenuField from './Comp/TopMenuField.js'
 import GameCalc from './Comp/GameCalc.js';
@@ -11,14 +11,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import SubmitButton from './Comp/SubmitButton.js';
 import BottomMenuField from './Comp/BottomMenuField.js';
 import TableLineStyling from './Comp/TableLineStyling.js';
+import Keyboard from './Comp/Keyboard.js';
 
 export default function GameDisplay() {
   const dispatch = useDispatch();
   const isGameWon = useSelector((state) => state.table.isGameWon);
   const gameDiff = useSelector((state) => state.table.gameDiff);
   const time = useSelector((state) => state.stopwatch.savedTime);
+  const showGame = useSelector((state) => state.table.showValue);
 
   let [userName, setUserName] = useState('');
+// add key board detection
+  
 
   const bigMessage = () => {
     return (
@@ -59,6 +63,7 @@ export default function GameDisplay() {
       <div className='gameContainer'><GameCalc />
         <div className='overflowStyle'><TableLineStyling /></div>
       </div>
+      { showGame ? <div className='keyboardStyle'><Keyboard /></div> : null }
     </div>
   )
 };

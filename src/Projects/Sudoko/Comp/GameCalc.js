@@ -365,7 +365,7 @@ export default function GameCalc() {
                             <div className={`rows row_${ i+1 }`} key={ `tr_${row + i}` } >
                                 { row.map((element,z) => {
                                     return (
-                                        <div key={ `td_${row  + z}` } className={ `cells cell_${i}${z} ` }>    
+                                        <div key={ `td_${row  + z}` } className={ `cells cell_${i}${z} r${i} c${z}` }>    
                                                 { (showArr.filter((xxx) => xxx === `${i}${z}`) == `${i}${z}`)
                                                 ?  <div className='elementDiv'>{ element }</div>  
                                                 : <input    
