@@ -14,10 +14,13 @@ export default function GameCalc() {
     const checkUserInput = useSelector((state) => state.table.checkGame);
     const autoInput = useSelector((state) => state.table.fill);
     const isEasyMode = useSelector((state) => state.table.easyMode);
+    const isMobile = useSelector((state) => state.mobile.isMobile);
+    const keyPress = useSelector((state) => state.table.mobileKeyPress);
 
     const [gameTable, setGameTable] = useState([]);             // game table to be filled
     const [userInput, setUserInput] = useState([]);             // users input log
     const [showArr,setShowArr]  = useState([]);                 // array of display
+    const [activeCell, setActiveCell] = useState({});           // mobile user selected cell
 
     let checkNumbers = [1,2,3,4,5,6,7,8,9];                     // global var for row check
     let temp_table = [[],[],[],[],[],[],[],[],[]];              // global var for table check
@@ -26,6 +29,7 @@ export default function GameCalc() {
     let showNumArr = [];                                        // global var for array of display 
     let zeroCount = 0;                                          // global var for zeroing
     let uInput = [[],[],[],[],[],[],[],[],[]];                  // user input table
+    // let activeCell = [];                                        
 
     // start game 
     useEffect(() => {
@@ -41,6 +45,25 @@ export default function GameCalc() {
         checkEveryInput();
     
     }, [userInput])
+    
+    // add users mobile keyboard press
+    useEffect(() => {
+    //   locate active cell 
+        let activeCell = document.querySelector('.active');
+        if ( activeCell !== null && keyPress !== 0 ) {
+            uInput = userInput;
+            // console.log(activeCell.classList[0], activeCell.classList[1]);
+            if ( activeCell.classList[1] === 'mobileInPut' ) { 
+                uInput[activeCell.classList[0] - 1][activeCell.classList[0] -1] = keyPress;
+            }
+            else {
+                uInput[activeCell.classList[0] - 1][activeCell.classList[1] - 1] = keyPress;
+            }
+        }
+    // add number
+    setUserInput(uInput => [...uInput]);
+    
+    }, [keyPress]);
     
     // check users input on submit press
     useEffect(() => {
@@ -95,6 +118,7 @@ export default function GameCalc() {
                 )
             }
             // this runs duispatch alot of times.... fix
+            // if counter != 0 break
             counter === 0 ? dispatch(isGameEnd(true)) : dispatch(isGameEnd(false));
         })});
         }
@@ -368,7 +392,7 @@ export default function GameCalc() {
                                         <div key={ `td_${row  + z}` } className={ `cells cell_${i}${z} r${i} c${z}` }>    
                                                 { (showArr.filter((xxx) => xxx === `${i}${z}`) == `${i}${z}`)
                                                 ?  <div className='elementDiv'>{ element }</div>  
-                                                : <input    
+                                                : !isMobile ? <input    
                                                         className={ `${i}${z} inputStyle` }  
                                                         value={ parseInt(userInput[i][z]) === 0 ? '' : parseInt(userInput[i][z]) } 
                                                         type= 'text' 
@@ -376,6 +400,9 @@ export default function GameCalc() {
                                                         onKeyDown = { (e) => delCell(e) }
                                                         style={{ color: easyColorSelector(i, z) }}
                                                     /> 
+                                                            : <div className={`${i+1} ${z+1} mobileInPut`} onClick={ (e) => setMobileCellActive(e) }>
+                                                                { parseInt(userInput[i][z]) === 0 ? '' : parseInt(userInput[i][z]) }
+                                                            </div>
                                                 }            
                                         </div>
                                     )
@@ -425,6 +452,20 @@ export default function GameCalc() {
         }
     };
 
+    // activte mobile cell 
+    const setMobileCellActive = (event) => {
+        let one = event.target.classList[0];
+        let two = event.target.classList[1];
+        uInput = userInput;
+
+        let activeCell = document.querySelector('.active');
+        if ( activeCell !== null ) {
+            activeCell.classList.remove('active');
+        };
+        event.target.classList.add('active');
+        setActiveCell({one, two});
+    };
+
     // create empty table for before game start
     const emptyTable = () => {
         createEmptyTable();
@@ -463,4 +504,4 @@ const createEmptyTable = () => {
   return (
         fullTableShow ? tableBase() : emptyTable()
   )
-}
+};

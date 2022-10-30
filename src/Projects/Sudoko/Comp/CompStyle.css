@@ -127,6 +127,28 @@
         text-align: center;
         
     }
+    .mobileInPut {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: red;
+        height: 95%;
+        width: 95%;
+    }
+    .active { 
+        border: 3px solid red;
+        border-radius: 3px;
+        height: 95%;
+        width: 95%;
+        animation-name: borderBlink;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes borderBlink {
+        0% { border: 3px solid red; }
+        50% { border: 3px solid rgba(255, 0, 0, 0.267); }
+        100% { border: 3px solid red; }
+    }
     /* keyboard styling */
     .keyboardContainer {
         display: flex;

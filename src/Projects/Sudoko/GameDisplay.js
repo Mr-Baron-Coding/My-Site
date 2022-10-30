@@ -19,6 +19,7 @@ export default function GameDisplay() {
   const gameDiff = useSelector((state) => state.table.gameDiff);
   const time = useSelector((state) => state.stopwatch.savedTime);
   const showGame = useSelector((state) => state.table.showValue);
+  const isMobile = useSelector((state) => state.mobile.isMobile);
 
   let [userName, setUserName] = useState('');
 // add key board detection
@@ -63,7 +64,7 @@ export default function GameDisplay() {
       <div className='gameContainer'><GameCalc />
         <div className='overflowStyle'><TableLineStyling /></div>
       </div>
-      { showGame ? <div className='keyboardStyle'><Keyboard /></div> : null }
+      { showGame && isMobile ? <div className='keyboardStyle'><Keyboard /></div> : null }
     </div>
   )
 };
