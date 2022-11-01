@@ -77,7 +77,7 @@
     }
 }
 
-@media only screen and ( min-width: 1000px ) {
+@media only screen and ( min-width: 1001px ) {
     .projectDisplayContainer {
         --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
         /* background-image: url('../images/free-wallpapers-site-14.jpg');

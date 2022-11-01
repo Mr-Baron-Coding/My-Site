@@ -162,6 +162,13 @@
         color: red;
         padding: 5px 10px 5px 10px;
     }
+    /* stopwatch styling */
+    .numbers {
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        align-items: flex-end;
+    }
 }
 
 /* large screens */
@@ -201,9 +208,9 @@
         color: rgb(71, 71, 71);
     }
     /* this is the 'are you sure' pop up messages styling */
-    .startANewContainer {  
+    .startANewContainer { 
         height: 100%;
-        width: 100%;
+        width: 40%;
         display: grid;
         grid-template: 
         'sentence sentence sentence sentence sentence sentence'

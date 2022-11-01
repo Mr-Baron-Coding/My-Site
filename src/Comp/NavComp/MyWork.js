@@ -16,6 +16,8 @@ export default function MyWork() {
     { name: 'Calculator', id: 3, pic: CalcPic, alt: "Calculator Pic", path: 'Calculator', className: 'CalcPicStyle', item: 'item_3' }
   ]);
 
+  const [selectedProject, setSelectedProject] = useState('');
+
   const toggleActive = (index) => {
     let arr = projects.filter((e,i) => i !== index);
     let x = 0;
@@ -36,8 +38,8 @@ export default function MyWork() {
     // console.log(bs);
     // as.style.setProperty('--carousel-border', '4px solid green');
     
-    
   };
+
 
   return (
     <div className='carouselContainer'>
@@ -50,32 +52,25 @@ export default function MyWork() {
                   onClick={ () => toggleActive(i) }
                 >
                   { e.item === 'item_1' 
-                    ? <nav>
-                        <Link to={`/projects/${ e.path }`} style={{ color: 'black' }}>
-                            <img
-                              className={ `${ e.className } picStyle` }
-                              src={ e.pic }
-                              alt={ e.alt }
-                            />             
-                        </Link>
-                      </nav>
-                    : <div>{ e.name } </div>
+                      ? <nav>
+                          <Link to={`/projects/${ e.path }`} style={{ color: 'black' }}>
+                            <div className={`cell_${e.item}`}>
+                              { e.name }
+                              <img
+                                className={ `${ e.className } picStyle` }
+                                src={ e.pic }
+                                alt={ e.alt }
+                              />             
+                            </div>
+                          </Link>
+                        </nav>
+                    : <div className={`cell_${e.item}`}>{ e.name } </div>
                   }
                   
                 </div>
               ) 
         })}
         </div>
-          {/* <div class="scene">
-            <div class="cube">
-              <div class="cube__face cube__face--front">front</div>
-              <div class="cube__face cube__face--back">back</div>
-              <div class="cube__face cube__face--right">right</div>
-              <div class="cube__face cube__face--left">left</div>
-              <div class="cube__face cube__face--top">top</div>
-              <div class="cube__face cube__face--bottom">bottom</div>
-            </div>
-          </div> */}
     </div>
        
   )

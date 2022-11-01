@@ -4,7 +4,7 @@ import './CompStyle.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { checkGame } from '../features/tableSlice.js';
-import { startWatch } from '../features/stopwatchSlice.js';
+// import { resetWatch, startWatch } from '../features/stopwatchSlice.js';
 
 export default function SubmitButton() {
     const dispatch = useDispatch();
@@ -12,7 +12,9 @@ export default function SubmitButton() {
     const isGameFinished = useSelector((state) => state.table.isGameEnd);
 
     const checkUserInput = () => {
+      // user pressed submit
         dispatch(checkGame(true));
+        // dispatch(resetWatch());
         // dispatch(startWatch(false));
 
     };

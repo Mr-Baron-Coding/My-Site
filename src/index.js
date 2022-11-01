@@ -11,6 +11,7 @@ import stopwatchSlice from './Projects/Sudoko/features/stopwatchSlice';
 import messageSlice from './Projects/Sudoko/features/messageSlice';
 import tableSlice from './Projects/Sudoko/features/tableSlice';
 import mobileSlice from './Comp/Features/mobileSlice';
+import scoreboardSlice from './Projects/Sudoko/features/scoreboardSlice';
 
 import { IconContext } from "react-icons";
 
@@ -20,6 +21,7 @@ const store = configureStore({
         messages: messageSlice,
         table: tableSlice,
         mobile: mobileSlice,
+        scoreboard: scoreboardSlice,
     }
 })
 

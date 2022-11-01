@@ -39,6 +39,6 @@ export default function BottomMenuField() {
     // solve game not refreshing on same difficulty button press 
     // messages and buttons for selecting and stoping stopwatch
   return (
-        userMess ? userMessage() : null
+       userMessage()
   )
 }

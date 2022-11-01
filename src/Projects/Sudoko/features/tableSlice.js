@@ -13,8 +13,7 @@ export const tableSlice = createSlice({
         easyMode: false,
         isGameEnd: false,
         isGameWon: false,
-        mobileKeyPress: 0,
-        userList: []
+        mobileKeyPress: 0
     },
     
     reducers: {
@@ -44,16 +43,10 @@ export const tableSlice = createSlice({
         },
         mobileKeyboardPress: (state, action) => {
             state.mobileKeyPress = action.payload;          // user's press on key board
-        },
-        addUser: (state, action) => {
-            console.log(action.payload);                   // add user and time 
-            state.userList = [
-                ...state.userList, { userName: action.payload.user, time: action.payload.time, difficulty: action.payload.diff, score: 0 }
-            ]
         }
     }
 });
 
-export const { showTable, gameDifficulty, tempDiff, checkGame, autoFillInput, superEasy, isGameEnd, gameWon, mobileKeyboardPress, addUser } = tableSlice.actions;
+export const { showTable, gameDifficulty, tempDiff, checkGame, autoFillInput, superEasy, isGameEnd, gameWon, mobileKeyboardPress } = tableSlice.actions;
 
 export default tableSlice.reducer;

@@ -4,9 +4,7 @@ import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
 import { dispalyBottomMessage, displayModeButtons } from '../features/messageSlice.js';
 import { checkGame, showTable, gameDifficulty, tempDiff, autoFillInput, superEasy, gameWon } from '../features/tableSlice.js';
 
-import BottomMenuField from './BottomMenuField.js';
 import './CompStyle.css';
-// import { color, style } from '@mui/system';
 
 export default function TopMenuField() {
     const dispatch = useDispatch();
@@ -14,13 +12,14 @@ export default function TopMenuField() {
     const diffButtons = useSelector((state) => state.messages.diffButtons);             // display buttons
     const isTimeRunning = useSelector((state) => state.stopwatch.running);              // is stopwatch running
     const isGameChecked = useSelector((state) => state.table.checkGame);                // are we checking the game after submit?
-    const isEasyMode = useSelector((state) => state.table.easyMode);
-    const isGameOver = useSelector((state) => state.table.isGameEnd);
+    const isEasyMode = useSelector((state) => state.table.easyMode);                    // set for easy mode?
+    const fullTableShow = useSelector((state) => state.table.showValue);                // is game board shown?
+
 
     const topMenuButtons = [
         { text: 'Start Game', id : 1 },
         { text: 'Auto fill', id : 2 },
-        // { text: 'SuperEasy', id : 3 }, 
+        { text: 'SuperEasy', id : 3 }
         // { text: 'Submit', id : 4 }, 
     ];
 
@@ -91,7 +90,7 @@ export default function TopMenuField() {
                         <div 
                             key={ i } 
                             onClick={ () => mainFunction(i) } 
-                            style={{ color: i===2 ? easyColor : null}}
+                            style={{ color: i===2 ? easyColor : null, display: ( i!==0 && !fullTableShow ) ? 'none' : 'block' }}
                         >
                             { button.text }
                         </div>

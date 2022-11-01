@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { checkGame, autoFillInput, superEasy, isGameEnd, gameWon } from '../features/tableSlice.js';
+import { checkGame, autoFillInput, superEasy, isGameEnd, gameWon, mobileKeyboardPress } from '../features/tableSlice.js';
 import { startWatch, resetWatch } from '../features/stopwatchSlice.js';
+import { displayOverlayMessage, displayWinMessage, displayNotCorrect } from '../features/messageSlice.js';
 
 
 import './CompStyle.css';
-import TableLineStyling from './TableLineStyling.js';
+// import TableLineStyling from './TableLineStyling.js';
 
 export default function GameCalc() {
     const dispatch = useDispatch();
@@ -20,7 +21,6 @@ export default function GameCalc() {
     const [gameTable, setGameTable] = useState([]);             // game table to be filled
     const [userInput, setUserInput] = useState([]);             // users input log
     const [showArr,setShowArr]  = useState([]);                 // array of display
-    const [activeCell, setActiveCell] = useState({});           // mobile user selected cell
 
     let checkNumbers = [1,2,3,4,5,6,7,8,9];                     // global var for row check
     let temp_table = [[],[],[],[],[],[],[],[],[]];              // global var for table check
@@ -29,57 +29,85 @@ export default function GameCalc() {
     let showNumArr = [];                                        // global var for array of display 
     let zeroCount = 0;                                          // global var for zeroing
     let uInput = [[],[],[],[],[],[],[],[],[]];                  // user input table
-    // let activeCell = [];                                        
 
     // start game 
     useEffect(() => {
         if ( numberToShow !== undefined ) {
+            // run the game with selected difficulty
             gameDiff(numberToShow);
+            // clear the game table 
             cleanTable();
+            // reset the watch
+            dispatch(resetWatch());
         } 
     
     }, [numberToShow]);
 
-    // check user input key press
+    // player pressed submit ---- >>>> check users input
     useEffect(() => {
-        checkEveryInput();
-    
-    }, [userInput])
+        if ( checkUserInput ) {
+            // stop timer 
+            dispatch(startWatch(false));
+
+            // call check users input table
+            inputVSGame();
+            dispatch(checkGame(false));
+        }
+    }, [checkUserInput]);
+
+    //  compare game board to users input
+    //  !!! add check for different combinations that work... !!! 
+    const inputVSGame = () => {
+        let counter = 0;
+        gameTable.map((row,rowI) => {row.map((cell, cellI) => {
+            if ( gameTable[rowI][cellI] === userInput[rowI][cellI] ) {
+                return (
+                    // count correct cells 
+                    counter++
+                )
+            }
+
+        })});
+        // if all cells filled correctly - end game else 
+        counter === 81 ? finishGame() : continueGame();
+    };
+    // player complited the game!
+    const finishGame = () => {
+        dispatch(gameWon(true));
+        dispatch(displayOverlayMessage(true));
+        dispatch(displayWinMessage(true));
+
+    };
+    // player didn't complete game correctly .. continue game
+    const continueGame = () => {
+        dispatch(displayOverlayMessage(true));
+        dispatch(displayNotCorrect(true));
+       
+    };
     
     // add users mobile keyboard press
     useEffect(() => {
     //   locate active cell 
-        let activeCell = document.querySelector('.active');
-        if ( activeCell !== null && keyPress !== 0 ) {
-            uInput = userInput;
-            // console.log(activeCell.classList[0], activeCell.classList[1]);
-            if ( activeCell.classList[1] === 'mobileInPut' ) { 
-                uInput[activeCell.classList[0] - 1][activeCell.classList[0] -1] = keyPress;
+        if ( keyPress !== 0 ) {
+            let activeCell = document.querySelector('.active');
+            if ( activeCell !== null ) {
+                uInput = userInput;
+                if ( activeCell.classList[1] === 'mobileInPut' ) { 
+                    uInput[activeCell.classList[0] - 1][activeCell.classList[0] -1] = keyPress;
+                }
+                else {
+                    uInput[activeCell.classList[0] - 1][activeCell.classList[1] - 1] = keyPress;
+                }
             }
-            else {
-                uInput[activeCell.classList[0] - 1][activeCell.classList[1] - 1] = keyPress;
-            }
-        }
-    // add number
-    setUserInput(uInput => [...uInput]);
-    
-    }, [keyPress]);
-    
-    // check users input on submit press
-    useEffect(() => {
-        if ( checkUserInput ) {
-            dispatch(startWatch(false));
-            dispatch(resetWatch());
-            inputVSGame();
-            dispatch(checkGame(false));
-        }
-        if ( isEasyMode && !checkUserInput ) {
+            // add number
+            setUserInput(uInput => [...uInput]);
+            // run a check to see if any empty cells
             checkEveryInput();
+            dispatch(mobileKeyboardPress(0)); 
         }
-    }, [checkUserInput]);
+    }, [keyPress]);
 
-
-    // auto fill the input
+    // player pressed auto fill input
     useEffect(() => {
         if ( autoInput ) {
             autoFill();
@@ -104,40 +132,28 @@ export default function GameCalc() {
 
     const checkEveryInput = () => {
         // here need to get user input and cell number 
-        if ( isEasyMode ) {
-            dispatch(superEasy(false));
-            console.log('Still LOL');
+        // if ( isEasyMode ) {
+        //     gameTable.map((row,rowI) => {row.map((cell, cellI) => {
+        //         if ( gameTable[rowI][cellI] === userInput[rowI][cellI] ) {
+        //             return (
+        //                 console.log('Lol')
+        //             )
+        //         }
+    
+        //     })});
             
-        }
-        else { 
+        // }
+        // else { 
             let counter = 0;
             userInput.map((row,rowI) => {row.map((cell, cellI) => {
-            if ( userInput[rowI][cellI] === 0 ) {
-                return (
-                    counter++
-                )
-            }
-            // this runs duispatch alot of times.... fix
-            // if counter != 0 break
-            counter === 0 ? dispatch(isGameEnd(true)) : dispatch(isGameEnd(false));
-        })});
-        }
+                if ( cell === 0 ) {
+                        counter++
+                }
+            })});
+        // if no emptey cells open submit option
+            if ( counter === 0 ) { dispatch(isGameEnd(true)) };  
+        // }
         
-    };
-
-    //  check user input 
-    const inputVSGame = () => {
-        let counter = 0;
-        gameTable.map((row,rowI) => {row.map((cell, cellI) => {
-            if ( gameTable[rowI][cellI] === userInput[rowI][cellI] ) {
-                return (
-                    counter++
-                )
-            }
-
-        })});
-        console.log(counter);
-        counter === 81 ? console.log('game won') : console.log('Not yet');;
     };
     
     // create full game table
@@ -400,7 +416,7 @@ export default function GameCalc() {
                                                         onKeyDown = { (e) => delCell(e) }
                                                         style={{ color: easyColorSelector(i, z) }}
                                                     /> 
-                                                            : <div className={`${i+1} ${z+1} mobileInPut`} onClick={ (e) => setMobileCellActive(e) }>
+                                                            : <div className={`${i+1} ${z+1} mobileInPut`} onClick={ (e) => setMobileCellActive(e) } style={{ color: easyColorSelector(i, z) }}>
                                                                 { parseInt(userInput[i][z]) === 0 ? '' : parseInt(userInput[i][z]) }
                                                             </div>
                                                 }            
@@ -414,10 +430,19 @@ export default function GameCalc() {
         )
     };
 
-    const easyColorSelector = (i, z) => {                           // for the light players =)
-        if (isEasyMode && parseInt(userInput[i][z]) !== gameTable[i][z]) {
-            return 'red'
-        } else { return 'black' };
+    // for the light players =)
+    const easyColorSelector = (i, z) => { 
+        if ( !isMobile ) {
+            if (isEasyMode && parseInt(userInput[i][z]) !== gameTable[i][z]) {
+                return 'red'
+            } else { return 'black' };
+        }         
+        else {
+            if (isEasyMode && parseInt(userInput[i][z]) !== gameTable[i][z]) {
+                return 'black'
+            } else { return 'red' };
+        }                 
+        
     };
 
     // inspect users input and place in check table
@@ -430,7 +455,7 @@ export default function GameCalc() {
         if ( user.match(numbers) !== null ) {
             uInput[i][j] = parseInt(user);
             setUserInput(uInput => [...uInput]);                   // !!!! this is how you update an array hook MF !!!!
-
+            if ( fullTableShow ) { checkEveryInput(); }
         }
         else {
             console.log('Not a Number');
@@ -463,7 +488,6 @@ export default function GameCalc() {
             activeCell.classList.remove('active');
         };
         event.target.classList.add('active');
-        setActiveCell({one, two});
     };
 
     // create empty table for before game start

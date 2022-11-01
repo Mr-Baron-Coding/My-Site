@@ -1,5 +1,5 @@
     /*  mobile */
-@media only screen and ( max-width: 500px ) {   
+@media only screen and ( max-width: 550px ) {   
      /* main screen  */
     .bodyStyle { 
         height: 100%;
@@ -115,7 +115,7 @@
     /* display styling */
     .bodyStyle { 
         --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
-        border: 5px solid black;
+        /* border: 5px solid black; */
 
         margin: auto;
         padding-top: 3rem;

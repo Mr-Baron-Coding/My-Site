@@ -8,6 +8,7 @@ export default function Stopwatch() {
   const dispatch = useDispatch();
   const elapsedTime = useSelector((state) => state.stopwatch.savedTime);
   const isTimeRunning = useSelector((state) => state.stopwatch.running);
+  const gameShown = useSelector((state) => state.table.showValue);
   
   const [time, setTime] = useState(0);
 
@@ -22,13 +23,16 @@ export default function Stopwatch() {
       }, 10);
     } 
     else if ( !isTimeRunning ) {
+      if ( elapsedTime === 0 && !gameShown ) { 
+        setTime(0);
+      }
       dispatch(logTime(time));
       clearInterval(interval);
     }
     return () => {
       clearInterval(interval);
     }
-  }, [isTimeRunning, dispatch]);
+  }, [isTimeRunning, gameShown, dispatch]);
     
   return (
     <div className="numbers">
@@ -36,7 +40,7 @@ export default function Stopwatch() {
       <span>:</span>
       <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>    {/* seconds */}
       <span>:</span>
-      <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>                {/* milliseconds */}
+      <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>               {/* milliseconds */}
     </div>
   )
 };
