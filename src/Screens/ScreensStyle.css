@@ -1,17 +1,21 @@
 @media only screen and ( max-width: 550px ) {
     .projectDisplayContainer {
         height: 100%;
-        width: auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
 
     }
     .projectDisplayWindow {
         flex: 9;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
 
     }
     .projectNavigation {
-
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -47,7 +51,7 @@
     
 }
 
-@media only screen and ( min-width: 500px ) and ( max-width: 1000px ) {
+@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
     .projectDisplayContainer {
         height: 50%;
         display: flex;

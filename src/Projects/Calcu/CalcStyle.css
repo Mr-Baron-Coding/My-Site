@@ -5,16 +5,34 @@
         margin: auto;
         height: 35rem;
         width: 28rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 16px;
+        border: 1px solid rgba(228, 228, 228, 0.31);
+        user-select: none;
     }
     /* outpout container */
     .displayContainer {
         margin: auto;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex: 2;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+
     }
     /* output fields */
     .outPut {
         text-align: right;
         color: black;
+        background: rgba(46, 45, 45, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        padding-right: 2%;
+        padding-left: 2%;
+	    text-align: right;
         background: rgba(46, 45, 45, 0.1);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(3px);
@@ -26,11 +44,14 @@
         border: none;
         font-size: 1.5rem;
         font-weight: bolder;
+        border-radius: 16px 16px 0 0;
+        flex: 1;
     }
     /* bottom field */
     .displayField {
         border: none;
         font-weight: bold;
+        flex: 0.8;
     }
     .button_Box:hover {
         -webkit-transition: 0.2s;
@@ -40,14 +61,6 @@
     
     }
 
-
-
-	/* background: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(15px);
-	backdrop-filter: blur(12px);
-	-webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4); */
-
 }
 
 /* cellphone screens */
@@ -56,66 +69,88 @@
     .calc_Container {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         height: 80vmax;
-        width: 100%;
         border: 5px solid rgba(255, 255, 255);
+        border-radius: 8px;
         color: white;
+        width: 100%;
     }
     /* outpout container */
-    
+    .displayContainer {
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+    }
+    /* input styling */
+    .outPut {
+	padding-right: 2%;
+    padding-left: 2%;
+	text-align: right;
+    background: rgba(46, 45, 45, 0.1);
+    border: none;
+    outline: none;
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    /* backdrop-filter: blur(3px); */
+    /* -webkit-backdrop-filter: blur(3px); */
+
+}
     /* top input field */
     .calOutputField {
         font-size: 3.5vmax;
+        color: white;
+        flex: 1;
     }
     /* bottom display field */
     .displayField{
         font-size: 2.5vmax;
+        color: white;
+        flex: 0.8;
     }
 
 }
 
 /* global */
 /* main container */
-.calc_Container {
+/* .calc_Container {
     display: flex;
     flex-direction: column;
     border-radius: 16px;
-    border: 1px solid rgba(46, 45, 45, 0.31);
+    border: 1px solid rgba(228, 228, 228, 0.31);
     user-select: none;
-}
+} */
 
 /*  input dispaly container */
-.displayContainer {
+/* .displayContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
     flex: 2;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 
-}
+} */
 
 /* input styling */
 .outPut {
-    /* width: 100%; */
-	padding-right: 2%;
+	/* padding-right: 2%;
     padding-left: 2%;
 	text-align: right;
-    /* color: rgb(255, 255, 255); */
     background: rgba(46, 45, 45, 0.1);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px); */
 
 }
 /* top input field */
 .calOutputField {
-    border-radius: 16px 16px 0 0;
-    flex: 1;
+    /* border-radius: 16px 16px 0 0;
+    flex: 1; */
 
 }
 /* bottom display field */
 .displayField{
-    flex: 0.8;
+    /* flex: 0.8; */
 
 }
 
@@ -131,13 +166,9 @@
     width: 100%;
     height: 100%;
     background: rgba(46, 45, 45, 0.1);
-    /* border-radius: 0 0 16px 16px; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(2.5px);
-    /* border: 1px solid rgba(46, 45, 45, 0.31); */
-    /* border: 1px solid rgba(255, 255, 255, 0.02); */
-	/* border-right: 1px solid rgba(255, 255, 255, 0.02); */
 
 }
 
