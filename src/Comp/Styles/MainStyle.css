@@ -23,6 +23,8 @@
         grid-area: header;
 
     }
+    .headerName { font-size: 2.5rem; }
+    .headerDiscription { font-size: 1.5rem; }
     .navDivStyle {
         grid-area: nav;
         padding-top: 1rem;
