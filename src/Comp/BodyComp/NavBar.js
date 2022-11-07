@@ -22,7 +22,7 @@ export default function Menus(props) {
     
     const mobileDisplay = () => {
       return (
-        <div className='mobileMenusDivStyle'>
+        <div className={`mobileMenusDivStyle ${ openClosed ? 'menuOpen' : null }`}>
           { topNav.map((cell) => {
             return (
               <div className={`selectStyle select_${cell.id}`} key={`id_${cell.id}`} onClick={ () => userPress(cell.id) }>

@@ -5,7 +5,7 @@ export default function WelcomeField() {
     <>
       <p>Hi, I'm Mike. </p>
       <p>Frontend programmer from Rishon LeTzion, Israel</p>
-      <p>Let's create your dreams together</p>
+      {/* <p>Let's create your dreams together</p> */}
     </>
   )
 }

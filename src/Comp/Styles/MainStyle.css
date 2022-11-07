@@ -53,6 +53,7 @@
         width: 15rem;
         border-radius: 15%;
         filter: grayscale(100%);
+        margin-top: 10%;
     }
     .dipalyDivStyle {
         display: none;
