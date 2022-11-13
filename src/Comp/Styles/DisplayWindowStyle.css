@@ -9,6 +9,8 @@
     .displayContantContainer {
         height: 100%;
         margin: auto;
+        position: relative;
+        border: 3px solid gold;
     }
 
 }

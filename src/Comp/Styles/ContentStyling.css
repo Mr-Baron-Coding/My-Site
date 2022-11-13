@@ -1,0 +1,43 @@
+@media only screen and ( min-width: 1001px ) {
+    .introDivStyle {
+        border: 3px solid red;
+        width: 70%;
+        height: 90%;
+        margin: auto;
+        padding-top: 1rem;
+    }
+    .cornerBorderLeftTop {
+        position: absolute;
+        background-color: black;
+        border-bottom-right-radius: 90%;
+        /* border-top-left-radius: 20%; */
+        width: 150px;
+        height: 10px;
+    }
+    .cornerFilerLeftTop {
+        position: absolute;
+        background-color: black;
+        border-bottom-right-radius: 95%;
+        /* border-top-width: 10px; */
+        width: 8px;
+        height: 150px;
+    }
+    .cornerBorderRigthBottom {
+        position: absolute;
+        background-color: black;
+        border-top-left-radius: 90%;
+        width: 10px;
+        height: 150px;
+        bottom: 100px;
+        right: 100px;
+    }
+    .cornerFilerRigthBottom {
+        position: absolute;
+        background-color: black;
+        border-top-left-radius: 90%;
+        width: 150px;
+        height: 8px;
+        bottom: 100px;
+        right: 100px;
+    }
+}

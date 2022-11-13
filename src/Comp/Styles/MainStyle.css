@@ -177,6 +177,8 @@
     }
     .picDivDivStyle {
         grid-area: pic;
+        display: flex;
+        padding-left: 5rem;
 
     }
     .dipalyDivStyle {
