@@ -20,6 +20,7 @@
     }
     /* header */
     .headerStyle {
+        padding-top: 1rem;
         grid-area: header;
 
     }
@@ -39,6 +40,8 @@
 
     }
     .hiDivStyle {
+        width: 80%;
+        margin: auto;
         display: flex;
         flex-direction: column;
         padding: 10px;

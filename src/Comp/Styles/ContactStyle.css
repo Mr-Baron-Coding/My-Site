@@ -1,0 +1,58 @@
+@media only screen and ( max-width: 550px ) {
+    .contactContainerStyle {
+        /* border: 3px solid red; */
+        display: flex;
+        flex-direction: column;
+    }
+    .cardContainer {
+        border: 1px solid white;
+        margin: 15px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and ( min-width: 1001px ) {
+    .contactContainerStyle {
+        /* border: 3px solid red; */
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+    }
+    .cardContainer {
+        border: 1px solid rgba(0, 0, 0, 0.397);
+        box-shadow: 1px 1px 4px slategray;
+        margin: 15px;
+        padding: 5px;
+        border-radius: 10px;
+        height: 100px;
+        /* display: grid;
+        grid-template-columns: auto auto; */
+        gap: 10px;
+        transition: all 1s;
+
+    }
+    .cardContainer:hover {
+        border: 1px solid black;
+        box-shadow: 1px 1px 6px slategray;
+        left: 10px;
+    }
+    .innerContainer {
+        /* border: 3px solid red; */
+        height: 30px;
+        overflow: hidden;
+        transition: height 2s;
+    }
+    .cardContainer:hover > .innerContainer {
+        /* overflow: visible; */
+        height: 60px;
+    }
+    a { 
+        color: black;
+        
+    }
+    a:hover {
+        color: red;
+    }
+}

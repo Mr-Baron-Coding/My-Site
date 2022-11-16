@@ -5,22 +5,34 @@ import '../Styles/ContentStyling.css';
 export default function About() {
   return (
     <>
-      <div className='cornerBorderLeftTop'></div>
-      <div className='cornerFilerLeftTop'></div>
-      <div className='cornerBorderRigthBottom'></div>
-      <div className='cornerFilerRigthBottom'></div>
-      <main className='introDivStyle'>
-        <p>I'm Michael Baron</p>
-        <p>
-          Discovered the passion for coding in SVCollege
-          and been learing by myself and creating different 
-          projects.
-        </p>
-        <p>
-          Completed frontend course through SVCollege in 2020. 
-          After internship perioed with BeSt continued working on my own projects and developing   
-        </p>
-      </main>
+      <div className='introDivStyle'>
+      <div className='borderLeftTop'></div>
+
+        {/* <header>
+          I'm Michael Baron
+        </header> */}
+        {/* <div style={{ border: '3px solid red', width: '600px', display: 'flex', flexDirection: "column" , justifyContent: 'start', alignContent: 'center' }}> */}
+          <div>
+            Completed frontend course through SVCollege where is discovered 
+            my passion for coding. 
+          </div>
+          <div>
+          After internship perioed with BeSt continued working on my own projects and developing my skills and knowledge, creating websites and mobile apps. 
+        </div>
+        {/* </div> */}
+        <div>
+          Here are a the technologies I`ve been working with:
+          <ul className='skillGrid'>
+            <li>CSS</li>
+            <li>Sass</li>
+            <li>Javascript</li>
+            <li>React</li>
+            <li>React Native</li>
+            <li>Node JS</li>
+          </ul>
+        </div>
+      </div>
     </>
+      
   )
-}
+};
