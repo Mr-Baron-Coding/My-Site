@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../Styles/ContactStyle.css';
 
-import { TbMail, TbBrandLinkedin, TbBrandGithub } from "react-icons/tb";
+import { TbMail, TbBrandLinkedin, TbBrandGithub, TbArrowDown } from "react-icons/tb";
 
 export default function Test() {
   return (
@@ -21,7 +21,9 @@ export default function Test() {
         <div>-----</div>
       </div>   
       <div className='cardContainer'>
-          Download Resume
+          <div className='innerContainer'>Download Resume
+            <div><TbArrowDown size={ 28 } /></div> 
+          </div>
         </div>
     </div>
   )
