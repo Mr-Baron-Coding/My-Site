@@ -13,12 +13,14 @@ export default function Test() {
         </div>
       </div>
       <div className='cardContainer'>
-        <div><TbBrandLinkedin size={ 28 }/></div>
-        <div>-----</div>
+        <div><TbBrandLinkedin size={ 28 }/>
+          <a href="https://www.linkedin.com/in/mike-g-baron/" target="_blank">Mike Baron</a>
+        </div>
+        <div></div>
       </div>
       <div className='cardContainer'>
         <div><TbBrandGithub size={ 28 }/></div>
-        <div>-----</div>
+        <div>Mike-Baron-Coding</div>
       </div>   
       <div className='cardContainer'>
           <div className='innerContainer'>Download Resume
