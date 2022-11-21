@@ -10,9 +10,9 @@ export default function Menus(props) {
 
     const [topNav, setTopNav] = useState([
       { val: 'About', id: 1, active: false },
-      { val: 'Skills', id: 2, active: false },
-      { val: 'Contact', id: 3, active: false },
-      { val: 'Projects', id: 4, active: false }
+      { val: 'Contact', id: 2, active: false },
+      { val: 'Projects', id: 3, active: false },      
+      // { val: 'Skills', id: 2, active: false },
     ]);
 
     const userPress = (val) => {

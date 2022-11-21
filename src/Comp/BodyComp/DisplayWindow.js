@@ -10,10 +10,10 @@ import '../Styles/DisplayWindowStyle.css';
 export default function DisplayWindow(props) {
     const displayList = [
         { name: 'A little about myself', id: 1, screen: <About /> },
-        { name: 'My skills', id: 2, screen: <Skills /> },
-        { name: 'Get in touch', id: 3, screen: <Contact /> },
-        { name: 'My Work', id: 4, screen: <MyWork /> },
-        { name: 'Eithan', id: 5}
+        // { name: 'My skills', id: 2, screen: <Skills /> },
+        { name: 'Get in touch', id: 2, screen: <Contact /> },
+        { name: 'My Work', id: 3, screen: <MyWork /> },
+        { name: 'Eithan', id: 4}
     ];
 
   return (

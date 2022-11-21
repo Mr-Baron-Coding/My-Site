@@ -25,6 +25,7 @@ export default function About() {
           <ul className='skillGrid'>
             <li>CSS</li>
             <li>Sass</li>
+            <li>HTML</li>
             <li>Javascript</li>
             <li>React</li>
             <li>React Native</li>

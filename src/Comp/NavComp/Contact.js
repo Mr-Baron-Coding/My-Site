@@ -13,18 +13,20 @@ export default function Test() {
         </div>
       </div>
       <div className='cardContainer'>
-        <div><TbBrandLinkedin size={ 28 }/>
-          <a href="https://www.linkedin.com/in/mike-g-baron/" target="_blank">Mike Baron</a>
+        <div className='innerContainer'><TbBrandLinkedin size={ 28 }/>
+          <a href="https://www.linkedin.com/in/mike-g-baron/" target="_blank"><div>Mike Baron</div></a>
         </div>
-        <div></div>
       </div>
       <div className='cardContainer'>
-        <div><TbBrandGithub size={ 28 }/></div>
-        <div>Mike-Baron-Coding</div>
+        <div className='innerContainer'><TbBrandGithub size={ 28 }/>
+          <a href='https://github.com/Mr-Baron-Coding/My-Site' target="_blank"><div>Mike-Baron-Coding</div></a>
+        </div>
       </div>   
       <div className='cardContainer'>
           <div className='innerContainer'>Download Resume
-            <div><TbArrowDown size={ 28 } /></div> 
+            
+              <a href='https://docs.google.com/document/d/10lozy83eYi3yfwGfHaBT3U1__xDi966j3Qf00JQH3rw/edit?usp=sharing'download><div><TbArrowDown size={ 28 } /></div></a>
+             
           </div>
         </div>
     </div>

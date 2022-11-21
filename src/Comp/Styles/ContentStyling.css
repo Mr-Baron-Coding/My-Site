@@ -18,10 +18,10 @@
 /* large screens */
 @media only screen and ( min-width: 1001px ) {
     .introDivStyle {
+        position: relative;
         width: 70%;
         height: 90%;
         margin: auto;
-        padding-top: 2rem;
         padding-bottom: 2rem;
         display: flex;
         flex-direction: column;
@@ -39,9 +39,8 @@
         border-radius: 5px;
         box-shadow: 2px 0 5px slategray;
         width: 4px;
-        height: 290px;
-        left: 10%;
-        top: 2%;
+        height: 90%;
+        left: -5%;
     }
     .introDivStyle:hover .borderLeftTop {
         box-shadow: 1px 0 5px red;
