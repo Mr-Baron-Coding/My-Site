@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../Styles/ContactStyle.css';
+// import '../../Resume/Michael Baron.pdf';
 
 import { TbMail, TbBrandLinkedin, TbBrandGithub, TbArrowDown } from "react-icons/tb";
 
@@ -23,10 +24,14 @@ export default function Test() {
         </div>
       </div>   
       <div className='cardContainer'>
+
           <div className='innerContainer'>Download Resume
-            
-              <a href='https://docs.google.com/document/d/10lozy83eYi3yfwGfHaBT3U1__xDi966j3Qf00JQH3rw/edit?usp=sharing'download><div><TbArrowDown size={ 28 } /></div></a>
-             
+          <a href='src/Resume/MichaelBaron.pdf' download>
+
+              {/* <a href='https://docs.google.com/document/d/10lozy83eYi3yfwGfHaBT3U1__xDi966j3Qf00JQH3rw' download='MichaelBaron'> */}
+                <div>Hello</div>
+                <div><TbArrowDown size={ 28 } /></div>
+                </a>
           </div>
         </div>
     </div>
