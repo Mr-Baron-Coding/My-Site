@@ -29,7 +29,7 @@ export default function Test() {
           {/* <a href='src/Resume/MichaelBaron.pdf' download> */}
 
               {/* <a href='https://docs.google.com/document/d/10lozy83eYi3yfwGfHaBT3U1__xDi966j3Qf00JQH3rw' download='MichaelBaron'> */}
-              <a href='../Resume/MichaelBaron.pdf' download='MichaelBaron'>
+              <a href='..\images\MichaelBaron.pdf' download='MichaelBaron.pdf'>
                 {/* <div>Hello</div> */}
                 <div><TbArrowDown size={ 28 } /></div>
                 </a>
