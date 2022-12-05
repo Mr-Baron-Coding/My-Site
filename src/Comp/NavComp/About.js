@@ -13,7 +13,7 @@ export default function About() {
         </header> */}
         {/* <div style={{ border: '3px solid red', width: '600px', display: 'flex', flexDirection: "column" , justifyContent: 'start', alignContent: 'center' }}> */}
           <div>
-            Completed frontend course through SVCollege where is discovered 
+            Completed frontend course through SVCollege where I discovered 
             my passion for coding. 
           </div>
           <div>

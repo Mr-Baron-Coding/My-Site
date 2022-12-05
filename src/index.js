@@ -23,9 +23,10 @@ const store = configureStore({
         mobile: mobileSlice,
         scoreboard: scoreboardSlice,
     }
-})
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <Provider store={ store }>
