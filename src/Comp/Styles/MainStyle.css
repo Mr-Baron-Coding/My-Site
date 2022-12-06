@@ -6,10 +6,10 @@
         width: 100%;
         display: grid;
         grid-template: 
-        'header nav'
-        'switch switch'; 
-        grid-template-rows: 0.2fr 1fr;
-        grid-template-columns: 0.9fr auto ;
+        'header'
+        'nav'
+        'switch'; 
+        grid-template-rows: 20% 10% 70%;
 
     }
     .mobileScreenSwitch {
@@ -20,23 +20,23 @@
     }
     /* header */
     .headerStyle {
-        padding-top: 1rem;
         grid-area: header;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
     .headerName { font-size: 2.5rem; }
     .headerDiscription { font-size: 1.5rem; }
     .navDivStyle {
         grid-area: nav;
-        padding-top: 1rem;
 
     }
     /* bottom screen part */
     .mobileSwitchTop {
-        margin-top: 2rem;
         display: grid;
         grid-template-rows: auto auto;
-        gap: 5px;
 
     }
     .hiDivStyle {
@@ -44,7 +44,6 @@
         margin: auto;
         display: flex;
         flex-direction: column;
-        padding: 10px;
 
     }
     .hiDivStyle p { 
@@ -66,15 +65,16 @@
 }
 
     /* tablet */
-@media only screen and ( min-width: 500px ) and ( max-width: 1000px ) {
+@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
     .bodyStyle { 
         height: 100%;
+        /* width: 100%; */
         display: grid;
         grid-template: 
             'header nav'
             'topSwitch topSwitch';
-        grid-template-rows: 0.5fr auto;
-        grid-template-columns: auto 0.15fr ;
+        grid-template-rows: 15% 85%;
+        grid-template-columns: 55% 45% ;
 
     }
     .largeDisplay {
@@ -82,34 +82,45 @@
     }
     .headerStyle {
         grid-area: header;
-        border: 5px solid green;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5% 0 0 10%;
+        /* justify-content: flex-start; */
 
     }
+    .headerName { font-size: 2.5rem; }
+    .headerDiscription { font-size: 1.5rem; }
     .navDivStyle {
         grid-area: nav;
-        border: 5px solid red;
+        padding: 5% 2% 0 0;
+
+    }
+    .mobileScreenSwitch {
+        grid-area: topSwitch;
+        display: flex;
+        flex-direction: column;
 
     }
     .mobileSwitchTop {
         display: grid;
-        grid-area: topSwitch;
-        grid-template: 'hi pic';
-        gap: 5px;
-        border: 6px solid white;
+        height: 80%;
+        grid-template: 'hi' 'pic';
+    }
+    .mobileSwitchBottom {
+        height: 80%;
     }
     .hiDivStyle {
         grid-area: hi;
-        border: 5px solid blue;
 
     }
     .picDivDivStyle {
         grid-area: pic;
-        border: 3px solid red;
 
     }
     .profilePicStyle {
-        height: 15rem;
-        width: 15rem;
+        height: 8rem;
+        width: 8rem;
         border-radius: 5%;
         filter: grayscale(100%);
     }

@@ -18,14 +18,19 @@ export default function Menus(props) {
     const userPress = (val) => {
       dispatch(openMenuScreen(val));
       dispatch(openClose());
+      let arr = topNav;
+      arr.forEach((cell) => cell.active = false);
+      arr[val-1].active = true;
+      setTopNav(arr => [...arr]);
     };
     
     const mobileDisplay = () => {
       return (
-        <div className={`mobileMenusDivStyle ${ openClosed ? 'menuOpen' : null }`}>
+        // <div className={`mobileMenusDivStyle ${ openClosed ? 'menuOpen' : null }`}>
+        <div className='mobileMenusDivStyle'>
           { topNav.map((cell) => {
             return (
-              <div className={`selectStyle select_${cell.id}`} key={`id_${cell.id}`} onClick={ () => userPress(cell.id) }>
+              <div className={`selectStyle select_${cell.id} ${ cell.active }`} key={`id_${cell.id}`} onClick={ () => userPress(cell.id) }>
                 { cell.val }
               </div>
             )
@@ -39,7 +44,7 @@ export default function Menus(props) {
       let arr = topNav;
       arr.forEach((cell) => cell.active = false);
       arr[e-1].active = true;
-      setTopNav(arr => [...arr])
+      setTopNav(arr => [...arr]);
     };
 
     const pcDisplay = () => {
@@ -59,6 +64,7 @@ export default function Menus(props) {
     };
     
   return (
-    mobile ? openClosed ? mobileDisplay() : null : pcDisplay()
+    // mobile ? openClosed ? mobileDisplay() : null : pcDisplay()
+    mobile ? mobileDisplay() : pcDisplay()
   )
 };

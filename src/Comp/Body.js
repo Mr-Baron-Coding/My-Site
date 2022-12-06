@@ -12,6 +12,7 @@ import './Styles/MainStyle.css';
 import { CgMenu, CgCloseR } from "react-icons/cg";  // icons
 import { AiOutlineHome } from "react-icons/ai";
 import profPic from '../images/ProfilePic.jpg';     // profile pic
+import MobileBody from './MobileBody.js';
 
 
 export default function Body() {
@@ -34,24 +35,23 @@ export default function Body() {
 
   const iconDisplay = () => {
     return (
-      !openClosed ? <div className='navAnimationContainer'><CgMenu size={ 26 } /></div> : <CgCloseR size={ 26 } color='red' />
+      !openClosed ? <div className='navAnimationContainer'><CgMenu size={ 26 } /></div> : <CgCloseR size={ 26 } color='#dbe1ff' />
     )
   };
 
   return (
-    <div style={{ height: '100%' }}>
-      { openClosed && mobile ? <NavBar /> : null }
-
-      <div className='bodyStyle' onClick={ () => closeMenu() }>
-        <div className='topBorderStyles'></div> {/* corner top */}
-        <div className='bottomBorderStyles'></div> {/* corner bottom */}
+    <>
+      {/* { openClosed && mobile ? <NavBar /> : null } */}
+      {/* <div className='bodyStyle' onClick={ () => closeMenu() }> */}
+      <div className='bodyStyle'>
           <div className='headerStyle'>  {/* header */}
-            <Header />      
+            { mobile ? <Header onClick={ () => dispatch(openMenuScreen(0)) }/> : <Header /> }    
           </div>
           <div className='navDivStyle'> {/* navigation */}
-            { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <div onClick={ () => dispatch(openClose(!openClosed)) }>{ iconDisplay() }</div> }
+            {/* { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <div onClick={ () => dispatch(openClose(!openClosed)) }>{ iconDisplay() }</div> } */}
+            { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <NavBar /> }
 {/* back home button */}
-            { mobile && screenNumber !== 0 ? <AiOutlineHome size={ 26 } onClick={ () => dispatch(openMenuScreen(0)) } /> : null }
+            {/* { mobile && screenNumber !== 0 ? <AiOutlineHome size={ 26 } onClick={ () => dispatch(openMenuScreen(0)) } /> : null } */}
           </div>
 
 {/* mobile switch bottom part view */}
@@ -84,6 +84,6 @@ export default function Body() {
             </div>
           </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -6,6 +6,115 @@
         display: flex;
         flex-direction: column;
         position: relative;
+        align-items: center; 
+    }
+    /* game face */
+    .gameContainer {
+        flex: 10;
+        position: relative;
+    }
+    .startStyle {
+        background-color: #51606f;
+        color: #ffffff;
+        flex: 1;
+        border: 3px solid #d4e4f6;
+        width: 95%;
+        margin-top: 10px;
+    }
+    .bottomStyle {
+        background-color: #67587a;
+        color: #ffffff;
+        position: absolute;        
+        z-index: 2;
+        border: 3px solid white;
+        border-radius: 10px;
+        width: 95%;
+        padding: 10px 0 10px 0;
+    }
+    .timerStyle {
+        flex: 1;
+        margin-top: 10px;
+    }
+    .submitStyle {
+        /* display: none; */
+        flex: 1;
+    }
+    .keyboardStyle {
+        flex: 1;
+        width: 95%;        
+    }
+/* end game message */
+    .messContainer {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(29, 29, 29, 0.5);
+        z-index: 2;
+        cursor: pointer;
+        color: black;
+
+    }
+    .saveInputContainer {
+        background-color: rgba(0, 0, 0, 0.815);
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: red;
+
+    }
+    .saveHeader {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid red;
+        border-bottom-left-radius: 5px;
+    }
+    .scoreInputName {
+        outline: none;
+        padding: 10px;
+        /* border: 3px solid red; */
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        width: 60%;
+    }
+    .saveButton {
+        border: 3px solid red;
+        border-radius: 10px;
+        width: 40%;
+        margin-bottom: 1rem;
+    }
+    /* uncomplete message */
+    .errorMessContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .textMessage {
+        color: white;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid white;
+    }
+    .continueButton {
+        background-color: white;
+        width: 40%;
+    }
+}
+
+/* tablet */
+@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+    /* main container */
+    .sudokoCompStyle {
+        display: flex;
+        padding-top: 1%;
+        flex-direction: column;
+        position: relative;
+        font-weight: 600;
         
     }
     /* game face */
@@ -29,7 +138,6 @@
         flex: 1;
     }
     .submitStyle {
-        /* display: none; */
         flex: 1;
     }
     .keyboardStyle {

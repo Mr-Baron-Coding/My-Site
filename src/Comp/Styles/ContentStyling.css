@@ -15,6 +15,23 @@
     }
     
 }
+
+/* tablets */
+@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+    .introDivStyle {
+        width: 90%;
+        margin: auto;
+    }
+    .introDivStyle>div { 
+        text-align: start;
+        padding-bottom: 1rem;
+    }
+    .skillGrid {
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
 /* large screens */
 @media only screen and ( min-width: 1001px ) {
     .introDivStyle {

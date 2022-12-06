@@ -1,23 +1,51 @@
 @media only screen and ( max-width: 550px ) {
     .contactContainerStyle {
-        /* border: 3px solid red; */
         display: flex;
         flex-direction: column;
     }
     .cardContainer {
+        background-color: #b8c8da;
+        color: #23323f;
         border: 1px solid white;
         height: 5rem;
         margin: 15px;
         padding: 5px;
         border-radius: 10px;
+        font-weight: 600;
+
     }
     a { 
-        color: white;
+        color: #23323f;
         text-decoration: none;
+        font-weight: 600;
         
     }
 }
 
+/* tablets */
+@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+    .contactContainerStyle {
+        display: flex;
+        flex-direction: column;
+    }
+    .cardContainer {
+        background-color: #b8c8da;
+        color: #23323f;
+        border: 1px solid white;
+        height: 5rem;
+        margin: 15px;
+        padding: 5px;
+        border-radius: 10px;
+        font-weight: 600;
+
+    }
+    a { 
+        color: #23323f;
+        text-decoration: none;
+        font-weight: 600;
+        
+    }
+}
 @media only screen and ( min-width: 1001px ) {
     .contactContainerStyle {
         /* border: 3px solid red; */

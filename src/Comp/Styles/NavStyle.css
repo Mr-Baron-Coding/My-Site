@@ -1,70 +1,54 @@
   /*  mobile */
 @media only screen and ( max-width: 550px ) {
     .mobileMenusDivStyle {
-        display: block;
-        position: fixed;
         display: flex;
-        flex-direction: column;
-        gap: 1px;
-        background-color: rgb(32, 32, 32);
-        width: 80%;
-        margin: 2% 0 0 2%;
-        z-index: 2;
-        animation-name: popUp;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
+        flex-direction: row;
+        background-color: #93ccff;
+        color: #003351;
+        border-bottom: 3px solid #8c9198;
+        border-right: 2px solid #8c9198;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
     }
-    @keyframes popUp {
-        from { transform: translateY(-200px); }
-        to { transform: translateY(100deg); }
-    }   
     .selectStyle {
-        background-color: rgb(32, 32, 32);
-        border: 3px solid rgba(255, 0, 0, 0.575);
-        color: red;
-        border-radius: 10px;
-        padding: 5px;
+        /* border-radius: 10px; */
+        padding: 8px;
         width: 100%;
-        /* transform: scale(0);
-
-        animation-name: select;
-        animation-duration: 0.5s;
-        animation-delay: 0.8s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards; */
-        
+        font-weight: bolder;
+        font-size: large;
     }
-    /* .select_1 {
-        position: relative;
-    }
-    .select_2 { 
-        animation-name: select;
-        animation-duration: 0.3s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-    }
-    .select_3 { 
-        animation-name: select;
-        animation-duration: 1.5s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-    }
-    .select_4 { 
-        animation-name: select;
-        animation-duration: 5s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-
-    } */
-    @keyframes select {
-        from { transform: scale(0); }
-        to { transform: scale(1);}
+    .true { 
+        /* border: 1px solid #42474e; */
+        text-decoration: underline;
     }
 }
 
 /* tablet */
-@media only screen and ( min-width: 500px ) and ( max-width: 1000px ) {}
+@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+    .mobileMenusDivStyle {
+        display: flex;
+        flex-direction: row;
+        background-color: #93ccff;
+        color: #003351;
+        border-bottom: 3px solid #8c9198;
+        border-right: 2px solid #8c9198;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+    .selectStyle {
+        /* border-radius: 10px; */
+        padding: 8px;
+        width: 100%;
+        font-weight: bolder;
+        font-size: large;
+    }
+    .true { 
+        /* border: 1px solid #42474e; */
+        text-decoration: underline;
+    }
+}
 
 /* screen */
 @media only screen and ( min-width: 1001px ) {

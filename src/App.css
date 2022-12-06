@@ -1,26 +1,7 @@
-@font-face {
-  font-family: 'Mikes_Font';
-  src:url('./assets/Lato/Lato-Regular.ttf') format('truetype');
+.App {
+  background-color: #001849;
+  color: #dbe1ff;
+  height: 100%; 
+  width: 100%; 
 
-}
-
-    /*  mobile */
- @media only screen and ( max-width: 500px ) {}
-  .App { background-image: none; background-color: rgb(41, 40, 40); height: 100%; width: 100%; color: white; }
-
-     /* tablet */
-@media only screen and ( min-width: 501px ) and ( max-width: 1000px ) {}
-  .App { background-image: none; background-color: rgb(41, 40, 40); height: 100%; width: 100%; color: white; }
-
-    /* screen */
-@media only screen and ( min-width: 1001px ) {
-  .App { 
-    background-image: url('./images/free-wallpapers-site-14.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    color: black;
-    /* font-size: calc(10px + (26 - 10) * ((100vw - 768px) / (1600 - 768)));  */
-
-  }
 }
