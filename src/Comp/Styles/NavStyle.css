@@ -29,11 +29,11 @@
     .mobileMenusDivStyle {
         display: flex;
         flex-direction: row;
-        background-color: #93ccff;
-        color: #003351;
-        border-bottom: 3px solid #8c9198;
+        /* background-color: #93ccff; */
+        color: #dbe1ff;
+        /* border-bottom: 3px solid #8c9198;
         border-right: 2px solid #8c9198;
-        border-radius: 8px;
+        border-radius: 8px; */
         justify-content: center;
         align-items: center;
     }

@@ -1,22 +1,10 @@
 html, body, #root {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
     user-select: none;
-
-}
-
-#root {
-    text-align: center;
-    height: 100%;
-    width: 100%;
+    background-color: #001849;
+    background-repeat: repeat;
+    color: #dbe1ff;
     font-family: 'Anek Devanagari', sans-serif;
+    text-align: center;
+
 }
-
-/* large screens */
-@media only screen and ( min-width: 1001px ) {
-    #root, html, body { 
-      height: 100%;
-    }
-  }
-
-/* mobile */

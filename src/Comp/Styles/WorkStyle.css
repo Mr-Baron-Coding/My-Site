@@ -1,7 +1,6 @@
 @media only screen and ( max-width: 550px ) {
     .carouselContainer {
-        height: 600px;
-
+        height: 100%;
     }
     .carousel {
         display: flex;
@@ -16,8 +15,8 @@
         box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
         font-size: 30px;
         border-radius: 10px;
-        height: 350px;
-        width: 250px;
+        height: 45vh;
+        width: 30vh;
         position: absolute;
         transition: all 3s linear;
         display: flex;
@@ -95,7 +94,15 @@
  /* tablet */
  @media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
     .carouselContainer {
-        height: 600px;
+        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+
+        box-shadow: -18px -18px 15px #001030,
+        13px 15px 15px #002062;
+        border-radius: 10px;   
+        height: 50vh;  
+        width: 80vw; 
+        animation-name: showAnimation;
+        animation-duration: 2s;
 
     }
     .carousel {
@@ -105,27 +112,26 @@
         height: 100%;
         justify-content: center;
         align-items: center;
+        border: 3px solid red;
     
     }
     .carousel_item {
         box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
-        font-size: 30px;
+        font-size: calc(var(--fontSize)*2.1);
         border-radius: 10px;
-        height: 350px;
-        width: 250px;
+        height: 35vh;
+        width: 25vh;
         position: absolute;
         transition: all 3s linear;
         display: flex;
         justify-content: center;
         align-items: center;
-        /* transform-style: preserve-3d; */
     
     }
     .item_1 {
         background: linear-gradient(270deg, #a3a3a3d3 10%, #949494c4 100%);
         z-index: 4;
         opacity: 1;
-        /* transform: scale(1); */
         border: 1.5px solid rgba(0, 0, 0, 0.459);
         transition: all 2s linear;
     
@@ -190,19 +196,30 @@
 /* large screens */
 @media only screen and ( min-width: 1001px ) {
     .carouselContainer {
-        --carousel-height: 500px;
-        --carousel-width: 1000px;
-        --carousel-item-height: 25rem;
+        --carousel-height: 46vh;
+        /* --carousel-width: 1000px; */
+        --carousel-item-height: 40vh;
         --carousel-item-width: 20rem;
       
-        width: 100%;
-    
+        height: 50vh;   
+        margin: auto;
+        animation-name: showAnimation;
+        animation-duration: 2s;
+        box-shadow: -18px -18px 35px #001030,
+        18px 18px 35px #002062;
+        border-radius: 10px;
+        padding: 3vh;
+
     }
-    
+    @keyframes showAnimation {
+        from {box-shadow: none; opacity: 0.2; }
+        to { box-shadow: -18px -18px 35px #001030,
+            18px 18px 35px #002062; opacity: 1;
+        }
+    }
     .carousel {
         display: flex;
         position: relative;
-        width: 100%;
         height: var(--carousel-height);
         justify-content: center;
         align-items: center;

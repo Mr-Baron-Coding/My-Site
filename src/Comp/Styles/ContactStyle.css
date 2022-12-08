@@ -25,70 +25,137 @@
 /* tablets */
 @media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
     .contactContainerStyle {
-        display: flex;
-        flex-direction: column;
-    }
-    .cardContainer {
-        background-color: #b8c8da;
-        color: #23323f;
-        border: 1px solid white;
-        height: 5rem;
-        margin: 15px;
-        padding: 5px;
-        border-radius: 10px;
-        font-weight: 600;
+        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
 
+        box-shadow: -18px -18px 15px #001030,
+        13px 15px 15px #002062;
+        border-radius: 10px;   
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 10px repeat(4, 20%) 10px;
+        grid-template-rows: repeat(4, 20%);
+        height: 50vh;  
+        width: 80vw; 
+        animation-name: showAnimation;
+        animation-duration: 2s;
     }
-    a { 
-        color: #23323f;
-        text-decoration: none;
-        font-weight: 600;
-        
+    @keyframes showAnimation {
+        from {box-shadow: none; opacity: 0.2; }
+        to { box-shadow: -18px -18px 35px #001030,
+            18px 18px 35px #002062; opacity: 1;
+        }
     }
-}
-@media only screen and ( min-width: 1001px ) {
-    .contactContainerStyle {
-        /* border: 3px solid red; */
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        margin: auto;
+    .mail { 
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+    }
+    .linkedin {
+        grid-column: 4 / 6;
+        grid-row: 2 / 3;
+    }
+    .github {
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+    }
+    .resume {
+        grid-column: 4 / 6;
+        grid-row: 3 / 4;
     }
     .cardContainer {
-        border: 1px solid rgba(0, 0, 0, 0.397);
+        border: 1px solid slategray;
         box-shadow: 1px 1px 4px slategray;
-        margin: 15px;
-        padding: 5px;
         border-radius: 10px;
-        height: 100px;
-        /* display: grid;
-        grid-template-columns: auto auto; */
-        gap: 10px;
         transition: all 1s;
+        font-size: calc(var(--fontSize)*1.8);
 
     }
     .cardContainer:hover {
-        border: 1px solid black;
-        box-shadow: 1px 1px 6px slategray;
+        border: 1px solid slategray;
+        box-shadow: 1px 1px 6px 2px slategray;
         left: 10px;
     }
     .innerContainer {
-        /* border: 3px solid red; */
-        height: 30px;
-        overflow: hidden;
-        transition: height 2s;
+        color: #dbe1ff;
     }
-    .cardContainer:hover > .innerContainer {
-        /* overflow: visible; */
-        height: 60px;
+    .cardContainer:hover > .linkHover > .innerContainer {
+        height: 100%;
+        /* background-color: #b8c8da; */
+        border-radius: 10px;
+        color: #23323f;
+
     }
     a { 
-        color: black;
-        text-decoration: none;
-        
+        color: #dbe1ff;
+        text-decoration: none;    
     }
-    
-    a:hover {
-        color: red;
+}
+/* large screens */
+@media only screen and ( min-width: 1001px ) {
+    .contactContainerStyle {
+        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+
+        box-shadow: -18px -18px 35px #001030,
+        18px 18px 35px #002062;
+        border-radius: 10px;   
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        height: 50vh;   
+        animation-name: showAnimation;
+        animation-duration: 2s;
+        padding: 3vh;
+    }
+    @keyframes showAnimation {
+        from {box-shadow: none; opacity: 0.2; }
+        to { box-shadow: -18px -18px 35px #001030,
+            18px 18px 35px #002062; opacity: 1;
+        }
+    }
+    .mail { 
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+    .linkedin {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+    .github {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    .resume {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+    .cardContainer {
+        border: 1px solid slategray;
+        box-shadow: 1px 1px 4px slategray;
+        border-radius: 10px;
+        transition: all 1s linear;
+        font-size: calc(var(--fontSize)*0.8);
+
+    }
+    .cardContainer:hover {
+        border: 1px solid slategray;
+        box-shadow: 1px 1px 6px 2px slategray;
+        left: 10px;
+    }
+    .innerContainer {
+        height: 30%;
+        overflow: hidden;
+        transition: height 1s linear;
+        color: #dbe1ff;
+    }
+    .cardContainer:hover > .linkHover > .innerContainer {
+        height: 100%;
+        background-color: #b8c8da;
+        border-radius: 10px;
+        color: #23323f;
+
+    }
+    a { 
+        color: #dbe1ff;
+        text-decoration: none;    
     }
 }

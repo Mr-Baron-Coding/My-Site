@@ -40,6 +40,7 @@ export default function Menus(props) {
     };
 
     const sayHello = (e) => {
+      dispatch(openMenuScreen(e));
       props.add(e);
       let arr = topNav;
       arr.forEach((cell) => cell.active = false);

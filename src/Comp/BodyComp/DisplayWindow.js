@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { openMenuScreen } from '../Features/mobileSlice';
 
 import Contact from '../NavComp/Contact';
 import Skills from '../NavComp/Skills';
@@ -8,6 +10,8 @@ import MyWork from '../NavComp/MyWork';
 import '../Styles/DisplayWindowStyle.css';
 
 export default function DisplayWindow(props) {
+    const screenNumber = useSelector((state) => state.mobile.screenNumber);
+
     const displayList = [
         { name: 'A little about myself', id: 1, screen: <About /> },
         // { name: 'My skills', id: 2, screen: <Skills /> },
@@ -17,15 +21,15 @@ export default function DisplayWindow(props) {
     ];
 
   return (
-    <div className='displayContantContainer'>
+    <>
         {displayList.map((e) => {
             return (
-                props.windowNumber === e.id 
-                    ? <div key={ e.id }>{ e.screen }</div>
+                screenNumber === e.id 
+                    ? <div className='displayContantContainer' key={ e.id }>{ e.screen }</div>
                     : null
                     
             )
         })}
-    </div>
+    </>
   )
 }

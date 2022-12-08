@@ -56,21 +56,17 @@
 }
 
 /* tablet */
-@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+@media only screen and ( min-width: 551px ) and ( max-width: 1000px ) {
     .projectDisplayContainer {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 90vh 10vh;
 
     }
     .projectDisplayWindow {
-        flex: 9;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: flex-start;
-        width: 100%;
 
     }
     .projectNavigation {
@@ -79,24 +75,18 @@
         justify-content: space-around;
         align-items: center;
         background-color: #b8c8da;
-        margin-bottom: 10px;
-        height: 60px;
+        border: 3px solid #23323f;
     
     }
     .linkStyle {
-        /* border: 2px solid #d4e4f6; */
-        /* background-color: #394857; */
-        height: 40px;
-        width: 40px;
         border-radius: 10px;
-        /* padding: 1rem; */
         color: #23323f;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .linkStyle:hover, .linkStyle:active {
-        border: 2px solid red;
+        /* border: 2px solid red; */
         color: black;
         animation-name: colorChange;
         animation-duration: 1s;
@@ -116,23 +106,17 @@
 @media only screen and ( min-width: 1001px ) {
     .projectDisplayContainer {
         --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
-        /* background-image: url('../images/free-wallpapers-site-14.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100%;
-        width: 100%;
-        color: black; */
-
+    
         margin: auto;
-        padding-top: 3rem;
         height: 100%; 
-        width: 90%;
+        width: 85vw;
 
         display: grid;
         grid-template: 
         'header display'
         'nav display';
         grid-template-columns: 0.5fr 1fr;
+        grid-template-rows: 20%;
 
     }
     .headerStyle {
@@ -140,7 +124,6 @@
         display: flex;
         flex-direction: column;
         align-items: start;
-        padding-left: 2rem;
 
     }
     .projectDisplayWindow {
@@ -171,9 +154,9 @@
     }
     .linkStyle:hover, .linkStyle:active {
         /* border: 2px solid red; */
-        color: black;
-        animation-name: colorChange;
-        animation-duration: 1s;
+        color: #003351;
+        /* animation-name: colorChange;
+        animation-duration: 1s; */
     }
     @keyframes colorChange {
         0% { border: 2px solid black; color: red; }
@@ -184,4 +167,15 @@
         100% { border: 2px solid red; color: black; }
         
     }
+}
+
+/* global */
+.projectDisplayContainer {
+    height: 100vh;
+    user-select: none;
+    background-color: #001849;
+    background-repeat: repeat;
+    color: #dbe1ff;
+    font-family: 'Anek Devanagari', sans-serif;
+    text-align: center;
 }

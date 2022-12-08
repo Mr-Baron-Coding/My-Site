@@ -1,9 +1,19 @@
-    /*  mobile */
+ /* global */
+.bodyStyle {
+    height: 100vh;
+    user-select: none;
+    background-color: #001849;
+    background-repeat: repeat;
+    color: #dbe1ff;
+    font-family: 'Anek Devanagari', sans-serif;
+    text-align: center;
+    --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+}
+
+ /*  mobile */
 @media only screen and ( max-width: 550px ) {   
      /* main screen  */
     .bodyStyle { 
-        height: 100%;
-        width: 100%;
         display: grid;
         grid-template: 
         'header'
@@ -37,7 +47,9 @@
     .mobileSwitchTop {
         display: grid;
         grid-template-rows: auto auto;
-
+    }
+    .mobileSwitchBottom {
+        height: 95%;
     }
     .hiDivStyle {
         width: 80%;
@@ -65,16 +77,16 @@
 }
 
     /* tablet */
-@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+@media only screen and ( min-width: 551px ) and ( max-width: 1000px ) {
     .bodyStyle { 
-        height: 100%;
-        /* width: 100%; */
         display: grid;
         grid-template: 
-            'header nav'
-            'topSwitch topSwitch';
-        grid-template-rows: 15% 85%;
-        grid-template-columns: 55% 45% ;
+            '... ... ... ...'
+            '... header nav ...'
+            '... topSwitch topSwitch ...';
+        grid-template-rows: 5vh 25vh 70vh;
+        /* grid-template-columns: 4% 50% 40% 4%; */
+        grid-template-columns: 4vw 50vw 40vw 4vw;
 
     }
     .largeDisplay {
@@ -85,31 +97,33 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 5% 0 0 10%;
-        /* justify-content: flex-start; */
+        /* padding-left: 5%; */
 
     }
-    .headerName { font-size: 2.5rem; }
-    .headerDiscription { font-size: 1.5rem; }
+    .headerName { font-size: calc(var(--fontSize)*4); }
+    .headerDiscription { font-size: calc(var(--fontSize)*2.5); }
     .navDivStyle {
         grid-area: nav;
-        padding: 5% 2% 0 0;
+        font-size: calc(var(--fontSize)*1.8);
 
     }
     .mobileScreenSwitch {
         grid-area: topSwitch;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        /* margin: auto; */
+        /* display: flex; */
+        /* flex-direction: column; */
 
     }
     .mobileSwitchTop {
         display: grid;
-        height: 80%;
         grid-template: 'hi' 'pic';
     }
-    .mobileSwitchBottom {
+    /* .mobileSwitchBottom {
         height: 80%;
-    }
+    } */
     .hiDivStyle {
         grid-area: hi;
 
@@ -127,37 +141,32 @@
 
 }
 
-    /* screen */
+    /* larger screen */
 @media only screen and ( min-width: 1001px ) {
     /* display styling */
     .bodyStyle { 
-        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
-        /* border: 5px solid black; */
+        /* --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768))); */
 
+        width: 85vw;
         margin: auto;
-        padding-top: 3rem;
-        height: 100%; 
-        width: 90%;
         position: relative; 
         display: grid;
         grid-template: 
+            '... ...'
             'header nav' 
-            'bottomDisplay bottomDisplay';
-        grid-template-rows: 20% 75%;
-        grid-template-columns: auto 35%;
-        gap: 2%;
+            'bottomDisplay bottomDisplay'
+            '... ...';
+        grid-template-rows: 4% 20% 74% 2%;
+        grid-template-columns: 65% 35%;
 
     }
     .largeDisplay {
         grid-area: bottomDisplay;
-        height: 100%;
         display: grid;
         grid-template: 
         'info displayWindow'
         'pic displayWindow';
-        grid-template-rows: auto auto;
         grid-template-columns: 40% 60%;
-
     }
 
     .headerStyle {
@@ -165,8 +174,7 @@
         display: flex;
         flex-direction: column;
         align-items: start;
-        padding-left: 2rem;
-                
+                        
     }
     .headerName {
         font-size: calc(var(--fontSize)*2.2);
@@ -186,18 +194,15 @@
         flex-direction: column;
         align-items: flex-start;
         font-size: calc(var(--fontSize)*0.8);
-        padding-left: 2rem;
 
     }
     .picDivDivStyle {
         grid-area: pic;
         display: flex;
-        padding-left: 5rem;
-
+        font-size: calc(var(--fontSize)*0.8);
     }
     .dipalyDivStyle {
         grid-area: displayWindow;
-
     }
     .profilePicStyle {
         height: 15rem;

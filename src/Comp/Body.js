@@ -12,7 +12,6 @@ import './Styles/MainStyle.css';
 import { CgMenu, CgCloseR } from "react-icons/cg";  // icons
 import { AiOutlineHome } from "react-icons/ai";
 import profPic from '../images/ProfilePic.jpg';     // profile pic
-import MobileBody from './MobileBody.js';
 
 
 export default function Body() {
@@ -40,12 +39,13 @@ export default function Body() {
   };
 
   return (
-    <>
-      {/* { openClosed && mobile ? <NavBar /> : null } */}
-      {/* <div className='bodyStyle' onClick={ () => closeMenu() }> */}
+
       <div className='bodyStyle'>
+              {/* { openClosed && mobile ? <NavBar /> : null } */}
+              {/* <div className='bodyStyle' onClick={ () => closeMenu() }> */}
           <div className='headerStyle'>  {/* header */}
-            { mobile ? <Header onClick={ () => dispatch(openMenuScreen(0)) }/> : <Header /> }    
+            {/* { mobile ? <Header onClick={ () => dispatch(openMenuScreen(0)) }/> : <Header /> }     */}
+            <Header onClick={ () => dispatch(openMenuScreen(0)) }/>    
           </div>
           <div className='navDivStyle'> {/* navigation */}
             {/* { !mobile ? <NavBar add={ (x) => addScreenLoad(x) } /> : <div onClick={ () => dispatch(openClose(!openClosed)) }>{ iconDisplay() }</div> } */}
@@ -84,6 +84,5 @@ export default function Body() {
             </div>
           </div>
       </div>
-    </>
   )
 }

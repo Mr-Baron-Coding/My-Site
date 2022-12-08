@@ -17,17 +17,34 @@
 }
 
 /* tablets */
-@media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
+@media only screen and ( min-width: 551px ) and ( max-width: 1000px ) {
     .introDivStyle {
-        width: 90%;
-        margin: auto;
+        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+
+        box-shadow: -18px -18px 35px #001030,
+        18px 18px 35px #002062;    
+        border-radius: 10px;
+        height: 50vh;   
+        width: 80vw; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        animation-name: showAnimation;
+        animation-duration: 2s;
+    }
+    @keyframes showAnimation {
+        from {box-shadow: none; opacity: 0.2; }
+        to { box-shadow: -18px -18px 35px #001030,
+            18px 18px 35px #002062; opacity: 1;
+        }
     }
     .introDivStyle>div { 
         text-align: start;
-        padding-bottom: 1rem;
+        font-size: calc(var(--fontSize)*1.8);
+        padding: 1rem;
     }
     .skillGrid {
-        margin-top: 1rem;
         display: grid;
         grid-template-columns: auto auto;
     }
@@ -35,37 +52,34 @@
 /* large screens */
 @media only screen and ( min-width: 1001px ) {
     .introDivStyle {
-        position: relative;
-        width: 70%;
-        height: 90%;
-        margin: auto;
-        padding-bottom: 2rem;
+        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+
+        box-shadow: -18px -18px 35px #001030,
+        18px 18px 35px #002062;    
+        border-radius: 10px;
+        height: 50vh;   
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        
+        animation-name: showAnimation;
+        animation-duration: 2s;
+        padding: 3vh;
+
+    }
+    @keyframes showAnimation {
+        from {box-shadow: none; opacity: 0.2; }
+        to { box-shadow: -18px -18px 35px #001030,
+            18px 18px 35px #002062; opacity: 1;
+        }
     }
     .introDivStyle>div { 
         text-align: start;
-        padding-bottom: 1rem;
-    }
-    .borderLeftTop {
-        position: absolute;
-        background-color: black;
-        border-radius: 5px;
-        box-shadow: 2px 0 5px slategray;
-        width: 4px;
-        height: 90%;
-        left: -5%;
-    }
-    .introDivStyle:hover .borderLeftTop {
-        box-shadow: 1px 0 5px red;
+        font-size: calc(var(--fontSize)*0.8);
+        margin-top: 20px;
     }
     .skillGrid {
-        margin-top: 1rem;
         display: grid;
         grid-template-columns: auto auto;
     }
-    
 }

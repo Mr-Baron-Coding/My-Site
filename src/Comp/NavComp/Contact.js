@@ -8,28 +8,33 @@ import { TbMail, TbBrandLinkedin, TbBrandGithub, TbArrowDown } from "react-icons
 export default function Test() {
   return (
     <div className='contactContainerStyle'>
-      <div className='cardContainer'>
-        <div className='innerContainer'><TbMail size={ 28 }/>
-        <a href="mailto:mikebaroncoding@gmail.com"><div>mikebaroncoding@gmail.com</div></a>
-        </div>
-      </div>
-      <div className='cardContainer'>
-        <div className='innerContainer'><TbBrandLinkedin size={ 28 }/>
-          <a href="https://www.linkedin.com/in/mike-g-baron/" target="_blank"><div>Mike Baron</div></a>
-        </div>
-      </div>
-      <div className='cardContainer'>
-        <div className='innerContainer'><TbBrandGithub size={ 28 }/>
-          <a href='https://github.com/Mr-Baron-Coding' target="_blank"><div>Mike-Baron-Coding</div></a>
-        </div>
-      </div>   
-      <div className='cardContainer'>
-
-          <div className='innerContainer'>Download Resume
-              <a href='.\src\Resume\MichaelBaron.pdf' download='MichaelBaron.pdf'>
-                <div><TbArrowDown size={ 28 } /></div>
-                </a>
+      <div className='cardContainer mail'>
+        <a href="mailto:mikebaroncoding@gmail.com" className='linkHover'>
+          <div className='innerContainer'><TbMail/>
+            <div>mikebaroncoding</div>
           </div>
+        </a>
+      </div>
+      <div className='cardContainer linkedin'>
+        <a href="https://www.linkedin.com/in/mike-g-baron/" className='linkHover' target="_blank">
+          <div className='innerContainer'><TbBrandLinkedin/>
+            <div>Mike Baron</div>
+          </div>
+        </a>
+      </div>
+      <div className='cardContainer github'>
+        <a href='https://github.com/Mr-Baron-Coding' className='linkHover' target="_blank">
+          <div className='innerContainer'><TbBrandGithub/>
+            <div>Mike-Baron-Coding</div>
+          </div>
+        </a>
+      </div>   
+      <div className='cardContainer resume'>
+        <a href='.\src\Resume\MichaelBaron.pdf' className='linkHover' download='MichaelBaron.pdf'>
+          <div className='innerContainer'>Download Resume   
+            <div><TbArrowDown/></div>
+          </div>
+        </a>
         </div>
     </div>
   )

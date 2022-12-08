@@ -110,38 +110,55 @@
 @media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
     /* main container */
     .sudokoCompStyle {
-        display: flex;
-        padding-top: 1%;
-        flex-direction: column;
+        --fontSize: calc(10px + (22 - 10) * ((100vw - 768px) / (1600 - 768)));
+
+        display: grid;
+        grid-template-areas: 
+        '... ...'
+        'topRowButtons topRowButtons'
+        'time submit'
+        'game game'
+        'keyboard keyboard';
+        grid-template-rows: 2vh 5vh 5vh 70vh 10vh;
+        grid-template-columns: 40% 40%;
+        column-gap: 20%;
         position: relative;
         font-weight: 600;
         
     }
     /* game face */
     .gameContainer {
-        flex: 10;
         position: relative;
+        grid-area: game;
     }
     .startStyle {
-        flex: 1;
+        border: 2px solid #8c9198;
+        background-color: #004b74;
+        font-size: calc(var(--fontSize)*2);
+        grid-area: topRowButtons;
     }
     .bottomStyle {
-        background-color: rgb(41, 40, 40);
-        position: absolute;        
+        background-color: #93ccff;
+        color: #003351;
+        font-size: calc(var(--fontSize)*1.8);
+        position: fixed;
+        width: 90vw;    
+        height: 10vh;   
+        margin-top: 10px;
         z-index: 2;
         border: 3px solid white;
         border-radius: 10px;
-        width: 100%;
-        padding: 10px 0 10px 0;
+        /* padding: 10px 0 10px 0; */
     }
     .timerStyle {
-        flex: 1;
+        grid-area: time;
+        font-size: calc(var(--fontSize)*1.8);
     }
     .submitStyle {
-        flex: 1;
+        grid-area: submit;
     }
     .keyboardStyle {
-        flex: 1;
+        grid-area: keyboard;
     }
 /* end game message */
     .messContainer {
@@ -149,7 +166,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100%;
+        width: 90vw;
         height: 100%;
         background-color: rgba(29, 29, 29, 0.5);
         z-index: 2;

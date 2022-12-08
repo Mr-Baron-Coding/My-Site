@@ -1,17 +1,19 @@
 /*  mobile */
-@media only screen and ( max-width: 550px ) {}
+@media only screen and ( max-width: 550px ) {
+    .displayContantContainer {
+        height: 100%;
+    }
+}
 
     /* tablet */
 @media only screen and ( min-width: 550px ) and ( max-width: 1000px ) {
-    .displayContantContainer {
-        border: 3 px solid red;
-    }
+
 }
 
     /* screen */
 @media only screen and ( min-width: 1001px ) {
     .displayContantContainer {
-        height: 100%;
+        height: 90%;
         margin: auto;
         position: relative;
     }
