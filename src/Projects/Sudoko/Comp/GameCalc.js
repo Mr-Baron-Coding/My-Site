@@ -435,7 +435,7 @@ export default function GameCalc() {
         if ( !isMobile ) {
             if (isEasyMode && parseInt(userInput[i][z]) !== gameTable[i][z]) {
                 return 'red'
-            } else { return 'black' };
+            } else { return 'white' };
         }         
         else {
             if (isEasyMode && parseInt(userInput[i][z]) !== gameTable[i][z]) {
